@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+  <meta charset="UTF-8">
+  <title></title>
+  <link href="css/reset.min.css" type="text/css" rel="stylesheet"/>
+
+  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap-responsive.css" />
+  <link href="css/main.css" type="text/css" rel='stylesheet'/>
+  <script src="js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<header class="header-container">
+  <nav class="top-nav">
+    <ul class="top-nav-container">
+      <li class="nav-item"><a href=""><span class="top-nav-font">首页</span></a></li>
+      <li class="nav-item"><a href="vip.html"><span class="top-nav-font">VIP办理</span></a></li>
+      <li class="nav-item"><a class="activated" href="#"><span class="top-nav-font">婚庆代驾</span></a></li>
+      <li class="nav-item"><a href="entry.html"><span class="top-nav-font">司机报名</span></a></li>
+      <li class="nav-item"><a href=""><span class="top-nav-font">最新活动</span></a></li>
+      <li class="nav-item"><a href="about.html"><span class="top-nav-font">关于我们</span></a></li>
+      <li class="nav-item"><a href="questions.html"><span class="top-nav-font">常见问答</span></a></li>
+    </ul>
+  </nav>
+  <div class="banners-container">
+    <img src="img/banner-1.jpg">
+  </div>
+</header>
+<div class="content-container secondary">
+  <div class="tile-basic wedding">
+    <div class="col-container">
+      <div class=" block clearfix form-horizontal wedding-content">
+        <div class="container-fluid">
+          <div class="span7">
+            <form id="wedding-apply-form" action="/wedding/" method="post">                                                <div class="control-group">
+              <label class="control-label required" for="WeddingApply_name"><span style="color:red;">*</span> 申请人姓名</label>                    <div class="controls">
+              <input class="input-xlarge info" placeholder="申请人姓名" name="WeddingApply[name]" id="WeddingApply_name" type="text" maxlength="40" />                    </div>
+            </div>
+              <div class="control-group">
+                <label class="control-label required" for="WeddingApply_phone"><span style="color:red;">*</span> 联系电话</label>                    <div class="controls">
+                <input class="input-xlarge info" placeholder="联系电话" name="WeddingApply[phone]" id="WeddingApply_phone" type="text" maxlength="32" />                    </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label required" for="WeddingApply_wedding_type"><span style="color:red;">*</span> 宴会类型</label>                    <div class="controls">
+                <select class="info" name="wedding_type" id="wedding_type">
+                  <option value="0">婚宴</option>
+                  <option value="1">酒会</option>
+                  <option value="2">其他</option>
+                </select>                    </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label required" for="WeddingApply_run_time"><span style="color:red;">*</span> 宴会举办日期</label>                    <div class="controls">
+                <input placeholder="选择宴会日期" class="input-xlarge info" id="WeddingApply_run_time" name="WeddingApply[run_time]" type="text" />                    </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label required" for="WeddingApply_city_id"><span style="color:red;">*</span> 城市</label>                    <div class="controls">
+                <select class="info" name="WeddingApply[city_id]" id="WeddingApply_city_id">
+                  <option value="0">请选择城市</option>
+                  <option value="1">北京</option>
+                  <option value="2">成都</option>
+                  <option value="3">上海</option>
+                  <option value="4">杭州</option>
+                  <option value="5">广州</option>
+                  <option value="6">深圳</option>
+                  <option value="7">重庆</option>
+                  <option value="8">南京</option>
+                  <option value="9">长沙</option>
+                  <option value="10">武汉</option>
+                  <option value="11">西安</option>
+                  <option value="12">宁波</option>
+                  <option value="13">天津</option>
+                  <option value="14">济南</option>
+                  <option value="15">苏州</option>
+                  <option value="16">郑州</option>
+                  <option value="17">沈阳</option>
+                  <option value="18">青岛</option>
+                  <option value="19">大连</option>
+                  <option value="20">厦门</option>
+                  <option value="21">合肥</option>
+                  <option value="22">哈尔滨</option>
+                  <option value="23">石家庄</option>
+                  <option value="24">福州</option>
+                  <option value="25">太原</option>
+                  <option value="26">无锡</option>
+                  <option value="27">常州</option>
+                  <option value="28">嘉兴</option>
+                  <option value="29">绍兴</option>
+                  <option value="30">金华</option>
+                  <option value="31">南通</option>
+                  <option value="32">镇江</option>
+                  <option value="33">扬州</option>
+                  <option value="34">湖州</option>
+                  <option value="35">徐州</option>
+                  <option value="36">大同</option>
+                  <option value="37">洛阳</option>
+                  <option value="38">珠海</option>
+                  <option value="39">海口</option>
+                  <option value="40">银川</option>
+                  <option value="41">贵阳</option>
+                  <option value="42">咸阳</option>
+                  <option value="43">泰州</option>
+                  <option value="44">唐山</option>
+                  <option value="45">连云港</option>
+                  <option value="46">丽水</option>
+                  <option value="47">盐城</option>
+                  <option value="48">湛江</option>
+                  <option value="49">佛山</option>
+                  <option value="50">汕头</option>
+                  <option value="51">阳江</option>
+                  <option value="52">漳州</option>
+                  <option value="53">威海</option>
+                  <option value="54">宜昌</option>
+                  <option value="55">潍坊</option>
+                  <option value="56">济宁</option>
+                  <option value="57">德州</option>
+                  <option value="58">宿迁</option>
+                  <option value="59">襄阳</option>
+                  <option value="60">绵阳</option>
+                  <option value="61">德阳</option>
+                  <option value="62">南昌</option>
+                  <option value="63">西宁</option>
+                  <option value="64">南宁</option>
+                  <option value="65">长春</option>
+                  <option value="66">日照</option>
+                  <option value="67">莱芜</option>
+                  <option value="68">舟山</option>
+                  <option value="69">江门</option>
+                  <option value="70">揭阳</option>
+                  <option value="71">韶关</option>
+                  <option value="72">淮安</option>
+                  <option value="73">黄石</option>
+                  <option value="74">荆州</option>
+                  <option value="75">萍乡</option>
+                  <option value="76">温州</option>
+                  <option value="77">三明</option>
+                  <option value="78">运城</option>
+                  <option value="79">渭南</option>
+                  <option value="80">汉中</option>
+                  <option value="81">新余</option>
+                  <option value="82">锦州</option>
+                </select>                    </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="WeddingApply_hotels">举办酒店</label>                    <div class="controls">
+                <input class="input-xlarge info" placeholder="举办酒店" name="WeddingApply[hotels]" id="WeddingApply_hotels" type="text" maxlength="50" />                    </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label required" for="WeddingApply_detail_site"><span style="color:red;">*</span> 宴会详细地点</label>                    <div class="controls">
+                <input class="input-xlarge info" placeholder="详细地址" name="WeddingApply[detail_site]" id="WeddingApply_detail_site" type="text" maxlength="200" />                    </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label required" for="WeddingApply_number"><span style="color:red;">*</span> 参加人数</label>                    <div class="controls">
+                <input class="input-xlarge info" placeholder="参加人数" name="WeddingApply[number]" id="WeddingApply_number" type="text" />                    </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label required" for="WeddingApply_mark"><span style="color:red;">*</span> 宴会流程、主要内容</label>                    <div class="controls">
+                <textarea rows="6" class="input-xlarge info" placeholder="流程和主要内容" name="WeddingApply[mark]" id="WeddingApply_mark"></textarea>                    </div>
+              </div>
+              <div class="control-group">
+                <label for="WeddingApply_verifyCode" class="control-label required"><span style="color:red;">* </span>验证码</label>
+                <div class="controls">
+                  <input class="span4" maxlength="4" placeholder="验证码" name="WeddingApply[verifyCode]" id="WeddingApply_verifyCode" type="text" style="width:90px;"><img id="yw0" src="http://www.edaijia.cn/v2/index.php?r=site/captcha&amp;v=53ed941cc2f98" alt=""><a id="yw0_button" href="/v2/index.php?r=site/captcha&amp;refresh=1">换一张</a>                    </div>
+                <label for="WeddingApply_verifyCode" class="control-label required"> </label>
+                <div class="controls">
+                  <div style="color:red;display:none" class="errorMessage" id="WeddingApply_verifyCode_em_"></div>                    </div>
+              </div>
+              <div class="control-group">
+                <div class="controls">
+                  <a class="btn btn-primary btn-large wedding_vip_submit" id="apply_wedding">提交申请</a>
+                </div>
+              </div>
+            </form>            </div>
+          <div class="span4 span5_div_apply">
+            婚宴/酒会因为开车不能喝酒，欢乐的时刻不能尽兴？现在，只要您的婚宴/酒会主题创意独特、规模够大、气氛够嗨，就有机会得到e代驾赞助的现场代驾服务。如您的婚宴/酒会需要我们赞助代驾服务，请详细填写下列表格。
+            <br/><br/>
+            申请提交成功后我们会在3-5个工作日内与您联系。
+          </div>
+        </div></div>
+    </div>
+  </div>
+  <footer class="footer-container">
+  <ul class="left-nav">
+    <li class="nav-item"><a href="">关于e代驾</a></li>
+    <li class="nav-item"><a href="">e代驾招募</a></li>
+    <li class="nav-item"><a href="">服务与合作</a></li>
+    <li class="nav-item"><a href="">司机专区</a></li>
+    <li class="nav-item"><a href="">司机端APP下载</a></li>
+  </ul>
+  <ul class="right-nav">
+    <li class="nav-item weibo"><a href="">e代驾官方微博</a></li>
+    <li class="nav-item wechat"><a href="">微信号：edaijia</a></li>
+  </ul>
+  <div class="line"></div>
+
+  <span class="bottom-text">投诉建议：400-691-3939 (9:00-18:00) &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; VIP办理：010-6439-2767 (9:00-18:00)</span>
+
+  <span class="bottom-text right-content">Copyright © 2011-2013 edaijia.cn All Right Reserved 京ICP备13048976号-1 </span>
+</footer>
+
+</div>
+
+
+
+
+</body>
+</html>

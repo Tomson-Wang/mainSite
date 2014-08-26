@@ -1,0 +1,5 @@
+
+<option value="0">--请选择城市--</option>
+{{for(var prop in it)}}
+  <option value="{{=it[prop]}}">{{=prop}}</option>
+{{}}

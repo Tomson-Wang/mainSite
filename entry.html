@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+  <meta charset="UTF-8">
+  <link href="css/reset.min.css" type="text/css" rel="stylesheet"/>
+
+  <link rel="stylesheet" type="text/css" href="http://zhaopin.edaijia.cn/cache/assets/63854129/jui/css/base/jquery-ui.css"/>
+  <link rel="stylesheet" type="text/css" href="http://zhaopin.edaijia.cn/cache/assets/90e46583/jquery-ui-timepicker-addon.css"/>
+  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap-responsive.css"/>
+  <link href="css/main.css" type="text/css" rel='stylesheet'/>
+  <script type="text/javascript" src="js/doT.min.js"></script>
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.md5.js"></script>
+  <!--<script type="text/javascript" src="js/jquery.form.js"></script>-->
+  <script type="text/javascript" src="js/common.js"></script>
+  <!--<script type="text/javascript" src="http://zhaopin.edaijia.cn/cache/assets/f21088ba/citypicker.js"></script>-->
+
+  <script>
+    $(function () {
+
+      $("a.nav-bar-item").on("click", function () {
+        var $navBarItem = $("a.nav-bar-item");
+        $navBarItem.removeClass("activated");
+        var colId = $(this).addClass("activated").data("col-id");
+        var $colContainers = $("div.col-container");
+        $colContainers.hide();
+        $colContainers.each(function () {
+          var $this = $(this);
+          if (colId == $this.data("col-id"))
+            $this.show().find("section.straight-matter").hide().eq(0).show();
+          $("ul.section-nav").find("li").removeClass("active").eq(0).addClass("active");
+
+        });
+      });
+      function selectList(listIndex, listItemIndex) {
+        var $colContainers = $("div.col-container");
+
+
+      }
+
+      $("ul.section-nav").find("a").live("click", function (e) {
+        var $this = $(this);
+        $this.parents("ul.section-nav").find("li").removeClass("active");
+        $this.parent().addClass("active");
+        var sectionId = $this.data("section-id");
+        var $parent = $this.parents("div.col-container");
+        $parent.find("section.straight-matter").hide();
+        $parent.find("section[data-section-id='" + sectionId + "']").show();
+        e.preventDefault();
+      });
+    });
+  </script>
+</head>
+<body>
+<header class="header-container">
+  <nav class="top-nav">
+    <ul class="top-nav-container">
+      <li class="nav-item"><a href="index.html"><span class="top-nav-font">首页</span></a></li>
+      <li class="nav-item"><a href="vip.html"><span class="top-nav-font">VIP办理</span></a></li>
+      <li class="nav-item"><a href="wedding.html"><span class="top-nav-font">婚庆代驾</span></a></li>
+      <li class="nav-item"><a href="#" class="activated"><span class="top-nav-font">司机报名</span></a></li>
+      <li class="nav-item"><a href=""><span class="top-nav-font">最新活动</span></a></li>
+      <li class="nav-item"><a href="about.html"><span class="top-nav-font">关于我们</span></a></li>
+      <li class="nav-item"><a href="questions.html"><span class="top-nav-font">常见问答</span></a></li>
+    </ul>
+  </nav>
+  <div class="banners-container">
+    <img src="img/entry.jpg">
+  </div>
+</header>
+<div class="content-container secondary">
+<div class="tile-basic entry">
+<nav class="custom-nav-bar">
+  <ul class="nav-bar-container">
+    <li><a class="nav-bar-item activated" data-col-id="1"><span>合作招募</span></a></li>
+    <li><a class="nav-bar-item" data-col-id="2">培训资料</a></li>
+    <li><a class="nav-bar-item" data-col-id="3">在线报名</a></li>
+    <li><a class="nav-bar-item" data-col-id="4">在线考试</a></li>
+    <li><a class="nav-bar-item" data-col-id="5">预约面试</a></li>
+    <li><a class="nav-bar-item" data-col-id="6">报名查询</a></li>
+  </ul>
+</nav>
+<!--合作招募-->
+<div class="col-container" data-col-id="1" data-edj-temp="corp">
+
+</div>
+<!--培训资料-->
+<div class="col-container" style="display: none" data-col-id="2" data-edj-temp="training">
+
+</div>
+<!--在线报名-->
+<div class="col-container" style="display: none;" data-col-id="3" data-edj-temp="signUp">
+
+</div>
+<!--在线报名-->
+
+<!--在线考试-->
+<div class="col-container" style="display: none;" data-col-id="4">
+  <div class=" exam-content">
+    <div class="row" style=" margin: 140px auto auto 280px;">
+      <div class="span6">
+        <form id="yw0" action="/exam" method="post">
+          <label for="id_card">请输入身份证号</label>
+          <input type="text" id="id_card" name="id_card" value="" style="float:left">&nbsp;
+          <input class="btn" type="submit" name="yt0" value="开始考试">
+        </form>
+      </div>
+      <input type="text" style="display:none;" id="id_cards" name="id_cards" value="1">
+    </div>
+  </div>
+</div>
+<script language='javascript' type='text/javascript'>
+  $('#sub_btn').click(function () {
+    var txt = $('#q_num').val();
+    var str_txt = txt.split(',');
+
+
+    for (var i = 0; i < str_txt.length - 1; i++) {
+      var ids = document.getElementsByName('' + str_txt[i] + '[]');
+      var flag = false;
+
+      for (var j = 0; j < ids.length; j++) {
+        if (ids[j].checked) {
+          flag = true;
+          break;
+        }
+      }
+
+      if (!flag) {
+        alert('请全部完成后再点击按钮');
+        return false;
+      }
+    }
+
+    $('#yw0').submit();
+
+  });
+</script>
+<!--在线考试-->
+
+<!--预约面试-->
+<div class="col-container" style="display: none;" data-col-id="5">
+  <div class="query-city">
+    <form class="form-inline" action="" method="get">
+      <!--<select name="city_id" id="city_id">-->
+      <!--<option value="0">请选择城市</option>-->
+      <!--<option value="1">北京</option>-->
+      <!--<option value="2">成都</option>-->
+      <!--<option value="3">上海</option>-->
+      <!--<option value="4">杭州</option>-->
+      <!--<option value="5">广州</option>-->
+      <!--<option value="6">深圳</option>-->
+      <!--<option value="7" selected="selected">重庆</option>-->
+      <!--<option value="8">南京</option>-->
+      <!--<option value="9">长沙</option>-->
+      <!--<option value="10">武汉</option>-->
+      <!--<option value="11">西安</option>-->
+      <!--<option value="12">宁波</option>-->
+      <!--<option value="13">温州</option>-->
+      <!--<option value="14">天津</option>-->
+      <!--<option value="15">济南</option>-->
+      <!--<option value="16">苏州</option>-->
+      <!--<option value="17">昆明</option>-->
+      <!--<option value="18">郑州</option>-->
+      <!--<option value="19">沈阳</option>-->
+      <!--<option value="20">青岛</option>-->
+      <!--<option value="21">大连</option>-->
+      <!--<option value="22">厦门</option>-->
+      <!--<option value="23">合肥</option>-->
+      <!--<option value="24">哈尔滨</option>-->
+      <!--<option value="25">石家庄</option>-->
+      <!--<option value="26">南昌</option>-->
+      <!--<option value="27">福州</option>-->
+      <!--<option value="28">佛山</option>-->
+      <!--<option value="29">太原</option>-->
+      <!--<option value="30">无锡</option>-->
+      <!--<option value="31">常州</option>-->
+      <!--<option value="32">东莞</option>-->
+      <!--<option value="33">贵阳</option>-->
+      <!--<option value="34">兰州</option>-->
+      <!--<option value="35">南宁</option>-->
+      <!--<option value="36">长春</option>-->
+      <!--<option value="37">南通</option>-->
+      <!--<option value="38">呼和浩特</option>-->
+      <!--<option value="39">包头</option>-->
+      <!--<option value="40">威海</option>-->
+      <!--<option value="41">海口</option>-->
+      <!--<option value="42">乌鲁木齐</option>-->
+      <!--<option value="43">银川</option>-->
+      <!--<option value="44">扬州</option>-->
+      <!--<option value="46">镇江</option>-->
+      <!--<option value="47">泰州</option>-->
+      <!--<option value="48">徐州</option>-->
+      <!--<option value="49">金华</option>-->
+      <!--<option value="50">绍兴</option>-->
+      <!--<option value="51">嘉兴</option>-->
+      <!--<option value="52">台州</option>-->
+      <!--<option value="53">湖州</option>-->
+      <!--<option value="54">惠州</option>-->
+      <!--<option value="55">中山</option>-->
+      <!--<option value="56">珠海</option>-->
+      <!--<option value="57">马鞍山</option>-->
+      <!--<option value="58">泉州</option>-->
+      <!--<option value="59">淄博</option>-->
+      <!--<option value="60">烟台</option>-->
+      <!--<option value="61">洛阳</option>-->
+      <!--<option value="62">新乡</option>-->
+      <!--<option value="63">廊坊</option>-->
+      <!--<option value="64">秦皇岛</option>-->
+      <!--<option value="65">唐山</option>-->
+      <!--<option value="66">鞍山</option>-->
+      <!--<option value="67">辽阳</option>-->
+      <!--<option value="68">宜昌</option>-->
+      <!--<option value="69">岳阳</option>-->
+      <!--<option value="70">宜宾</option>-->
+      <!--<option value="71">大同</option>-->
+      <!--<option value="72">咸阳</option>-->
+      <!--<option value="73">连云港</option>-->
+      <!--<option value="74">丽水</option>-->
+      <!--<option value="75">盐城</option>-->
+      <!--<option value="76">湛江</option>-->
+      <!--<option value="77">西宁</option>-->
+      <!--<option value="78">拉萨</option>-->
+      <!--<option value="79">漳州</option>-->
+      <!--<option value="80">莆田</option>-->
+      <!--<option value="81">龙岩</option>-->
+      <!--<option value="82">南平</option>-->
+      <!--<option value="83">三明</option>-->
+      <!--<option value="84">潍坊</option>-->
+      <!--<option value="85">济宁</option>-->
+      <!--<option value="86">东营</option>-->
+      <!--<option value="87">临沂</option>-->
+      <!--<option value="89">泰安</option>-->
+      <!--<option value="90">德州</option>-->
+      <!--<option value="91">聊城</option>-->
+      <!--<option value="92">滨州</option>-->
+      <!--<option value="93">枣庄</option>-->
+      <!--<option value="94">菏泽</option>-->
+      <!--<option value="95">日照</option>-->
+      <!--<option value="96">莱芜</option>-->
+      <!--<option value="97">义乌</option>-->
+      <!--<option value="98">舟山</option>-->
+      <!--<option value="99">衢州</option>-->
+      <!--<option value="100">茂名</option>-->
+      <!--<option value="101">江门</option>-->
+      <!--<option value="102">肇庆</option>-->
+      <!--<option value="103">汕头</option>-->
+      <!--<option value="104">揭阳</option>-->
+      <!--<option value="105">清远</option>-->
+      <!--<option value="106">阳江</option>-->
+      <!--<option value="107">韶关</option>-->
+      <!--<option value="108">梅州</option>-->
+      <!--<option value="109">潮州</option>-->
+      <!--<option value="110">河源</option>-->
+      <!--<option value="111">汕尾</option>-->
+      <!--<option value="112">云浮</option>-->
+      <!--<option value="113">淮安</option>-->
+      <!--<option value="114">宿迁</option>-->
+      <!--<option value="115">邯郸</option>-->
+      <!--<option value="116">沧州</option>-->
+      <!--<option value="117">保定</option>-->
+      <!--<option value="118">邢台</option>-->
+      <!--<option value="119">安阳</option>-->
+      <!--<option value="120">焦作</option>-->
+      <!--<option value="121">许昌</option>-->
+      <!--<option value="122">平顶山</option>-->
+      <!--<option value="123">漯河</option>-->
+      <!--<option value="124">长治</option>-->
+      <!--<option value="125">晋城</option>-->
+      <!--<option value="126">临汾</option>-->
+      <!--<option value="127">阳泉</option>-->
+      <!--<option value="128">运城</option>-->
+      <!--<option value="129">榆林</option>-->
+      <!--<option value="130">宝鸡</option>-->
+      <!--<option value="131">铜川</option>-->
+      <!--<option value="132">渭南</option>-->
+      <!--<option value="133">汉中</option>-->
+      <!--<option value="134">襄阳</option>-->
+      <!--<option value="135">孝感</option>-->
+      <!--<option value="136">黄石</option>-->
+      <!--<option value="137">黄冈</option>-->
+      <!--<option value="138">荆州</option>-->
+      <!--<option value="139">荆门</option>-->
+      <!--<option value="140">常德</option>-->
+      <!--<option value="141">衡阳</option>-->
+      <!--<option value="142">株洲</option>-->
+      <!--<option value="143">彬州</option>-->
+      <!--<option value="144">湘潭</option>-->
+      <!--<option value="145">芜湖</option>-->
+      <!--<option value="146">蚌埠</option>-->
+      <!--<option value="147">淮南</option>-->
+      <!--<option value="148">安庆</option>-->
+      <!--<option value="149">淮北</option>-->
+      <!--<option value="150">阜阳</option>-->
+      <!--<option value="151">绵阳</option>-->
+      <!--<option value="152">德阳</option>-->
+      <!--<option value="153">自贡</option>-->
+      <!--<option value="154">攀枝花</option>-->
+      <!--<option value="155">泸州</option>-->
+      <!--<option value="156">乐山</option>-->
+      <!--<option value="157">内江</option>-->
+      <!--<option value="158">九江</option>-->
+      <!--<option value="159">新余</option>-->
+      <!--<option value="160">萍乡</option>-->
+      <!--<option value="161">景德镇</option>-->
+      <!--<option value="162">鹰潭</option>-->
+      <!--<option value="164">赣州</option>-->
+      <!--<option value="165">营口</option>-->
+      <!--<option value="166">盘锦</option>-->
+      <!--<option value="167">锦州</option>-->
+      <!--<option value="168">抚顺</option>-->
+      <!--<option value="169">本溪</option>-->
+      <!--<option value="170">铁岭</option>-->
+      <!--<option value="171">商丘</option>-->
+      <!--<option value="172">开封</option>-->
+      <!--<option value="173">遵义</option>-->
+      <!--<option value="174">毕节</option>-->
+      <!--<option value="175">郴州</option>-->
+      <!--<option value="176">吕梁</option>-->
+      <!--<option value="177">达州</option>-->
+      <!--</select>-->
+      <input type="hidden" name="act" value="interview"/>
+      <input type="submit" class="btn" value="查询"/>
+    </form>
+  </div>
+</div>
+<!--预约面试-->
+
+<!--报名查询-->
+<div class="col-container" style="display: none;" data-col-id="6">
+  <div class="queue-content">
+    <div class="row" style=" margin: 140px auto auto 280px;">
+      <div class="span6">
+        <form id="yw0" action="/queue" method="post">
+          <label for="id_card">请输入身份证号</label>
+          <input type="text" id="id_card" name="id_card" value=""/>
+          <input class="btn" type="submit" name="yt0" value="查询"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--报名查询-->
+<br style="clear:both;"/>
+</div>
+<footer class="footer-container">
+  <ul class="left-nav">
+    <li class="nav-item"><a href="">关于e代驾</a></li>
+    <li class="nav-item"><a href="">e代驾招募</a></li>
+    <li class="nav-item"><a href="">服务与合作</a></li>
+    <li class="nav-item"><a href="">司机专区</a></li>
+    <li class="nav-item"><a href="">司机端APP下载</a></li>
+  </ul>
+  <ul class="right-nav">
+    <li class="nav-item weibo"><a href="">e代驾官方微博</a></li>
+    <li class="nav-item wechat"><a href="">微信号：edaijia</a></li>
+  </ul>
+  <hr class="line"/>
+  <span class="bottom-text">投诉建议：400-691-3939 (9:00-18:00) &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; VIP办理：010-6439-2767 (9:00-18:00)</span>
+  <span class="bottom-text right-content">Copyright © 2011-2013 edaijia.cn All Right Reserved 京ICP备13048976号-1 </span>
+</footer>
+
+</div>
+<script type="text/javascript" src="http://zhaopin.edaijia.cn/cache/assets/63854129/jui/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://zhaopin.edaijia.cn/cache/assets/63854129/jui/js/jquery-ui-i18n.min.js"></script>
+<script type="text/javascript" src="http://zhaopin.edaijia.cn/cache/assets/90e46583/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript">
+  /*<![CDATA[*/
+  jQuery(function ($) {
+
+    jQuery('#DriverRecruitment_driver_year').datepicker(jQuery.extend({showMonthAfterYear: false}, jQuery.datepicker.regional['zh'], {'dateFormat': 'yy-mm-dd', 'changeYear': true, 'changeMonth': true}));
+//    jQuery('#yw0').citypicker({"cityList": {"\u70ed\u95e8\u57ce\u5e02": {"1": "\u5317\u4eac", "3": "\u4e0a\u6d77", "5": "\u5e7f\u5dde", "6": "\u6df1\u5733", "4": "\u676d\u5dde", "8": "\u5357\u4eac", "2": "\u6210\u90fd", "7": "\u91cd\u5e86"}, "A-F": {"1": "\u5317\u4eac", "2": "\u6210\u90fd", "7": "\u91cd\u5e86", "9": "\u957f\u6c99", "21": "\u5927\u8fde", "27": "\u798f\u5dde", "28": "\u4f5b\u5c71", "31": "\u5e38\u5dde", "32": "\u4e1c\u839e", "36": "\u957f\u6625", "39": "\u5305\u5934", "66": "\u978d\u5c71", "71": "\u5927\u540c", "86": "\u4e1c\u8425", "90": "\u5fb7\u5dde", "92": "\u6ee8\u5dde", "109": "\u6f6e\u5dde", "116": "\u6ca7\u5dde", "117": "\u4fdd\u5b9a", "119": "\u5b89\u9633", "124": "\u957f\u6cbb", "130": "\u5b9d\u9e21", "140": "\u5e38\u5fb7", "143": "\u5f6c\u5dde", "146": "\u868c\u57e0", "148": "\u5b89\u5e86", "150": "\u961c\u9633", "152": "\u5fb7\u9633", "168": "\u629a\u987a", "169": "\u672c\u6eaa", "174": "\u6bd5\u8282", "175": "\u90f4\u5dde", "177": "\u8fbe\u5dde"}, "G-J": {"4": "\u676d\u5dde", "5": "\u5e7f\u5dde", "15": "\u6d4e\u5357", "23": "\u5408\u80a5", "24": "\u54c8\u5c14\u6ee8", "33": "\u8d35\u9633", "38": "\u547c\u548c\u6d69\u7279", "41": "\u6d77\u53e3", "49": "\u91d1\u534e", "51": "\u5609\u5174", "53": "\u6e56\u5dde", "54": "\u60e0\u5dde", "85": "\u6d4e\u5b81", "94": "\u83cf\u6cfd", "101": "\u6c5f\u95e8", "104": "\u63ed\u9633", "110": "\u6cb3\u6e90", "113": "\u6dee\u5b89", "115": "\u90af\u90f8", "120": "\u7126\u4f5c", "123": "\u6f2f\u6cb3", "125": "\u664b\u57ce", "133": "\u6c49\u4e2d", "136": "\u9ec4\u77f3", "137": "\u9ec4\u5188", "138": "\u8346\u5dde", "139": "\u8346\u95e8", "141": "\u8861\u9633", "147": "\u6dee\u5357", "149": "\u6dee\u5317", "158": "\u4e5d\u6c5f", "161": "\u666f\u5fb7\u9547", "164": "\u8d63\u5dde", "167": "\u9526\u5dde"}, "K-N": {"8": "\u5357\u4eac", "12": "\u5b81\u6ce2", "17": "\u6606\u660e", "26": "\u5357\u660c", "34": "\u5170\u5dde", "35": "\u5357\u5b81", "37": "\u5357\u901a", "57": "\u9a6c\u978d\u5c71", "61": "\u6d1b\u9633", "63": "\u5eca\u574a", "67": "\u8fbd\u9633", "73": "\u8fde\u4e91\u6e2f", "74": "\u4e3d\u6c34", "78": "\u62c9\u8428", "81": "\u9f99\u5ca9", "82": "\u5357\u5e73", "87": "\u4e34\u6c82", "91": "\u804a\u57ce", "96": "\u83b1\u829c", "100": "\u8302\u540d", "108": "\u6885\u5dde", "126": "\u4e34\u6c7e", "151": "\u7ef5\u9633", "156": "\u4e50\u5c71", "157": "\u5185\u6c5f", "172": "\u5f00\u5c01", "176": "\u5415\u6881"}, "P-W": {"3": "\u4e0a\u6d77", "6": "\u6df1\u5733", "10": "\u6b66\u6c49", "13": "\u6e29\u5dde", "14": "\u5929\u6d25", "16": "\u82cf\u5dde", "19": "\u6c88\u9633", "20": "\u9752\u5c9b", "25": "\u77f3\u5bb6\u5e84", "29": "\u592a\u539f", "30": "\u65e0\u9521", "40": "\u5a01\u6d77", "42": "\u4e4c\u9c81\u6728\u9f50", "47": "\u6cf0\u5dde", "50": "\u7ecd\u5174", "52": "\u53f0\u5dde", "58": "\u6cc9\u5dde", "64": "\u79e6\u7687\u5c9b", "65": "\u5510\u5c71", "80": "\u8386\u7530", "83": "\u4e09\u660e", "84": "\u6f4d\u574a", "89": "\u6cf0\u5b89", "95": "\u65e5\u7167", "103": "\u6c55\u5934", "105": "\u6e05\u8fdc", "107": "\u97f6\u5173", "111": "\u6c55\u5c3e", "114": "\u5bbf\u8fc1", "122": "\u5e73\u9876\u5c71", "131": "\u94dc\u5ddd", "132": "\u6e2d\u5357", "145": "\u829c\u6e56", "154": "\u6500\u679d\u82b1", "160": "\u840d\u4e61", "166": "\u76d8\u9526", "170": "\u94c1\u5cad", "171": "\u5546\u4e18"}, "X-Z": {"11": "\u897f\u5b89", "18": "\u90d1\u5dde", "22": "\u53a6\u95e8", "43": "\u94f6\u5ddd", "44": "\u626c\u5dde", "46": "\u9547\u6c5f", "48": "\u5f90\u5dde", "55": "\u4e2d\u5c71", "56": "\u73e0\u6d77", "59": "\u6dc4\u535a", "60": "\u70df\u53f0", "62": "\u65b0\u4e61", "68": "\u5b9c\u660c", "69": "\u5cb3\u9633", "70": "\u5b9c\u5bbe", "72": "\u54b8\u9633", "75": "\u76d0\u57ce", "76": "\u6e5b\u6c5f", "77": "\u897f\u5b81", "79": "\u6f33\u5dde", "93": "\u67a3\u5e84", "97": "\u4e49\u4e4c", "98": "\u821f\u5c71", "99": "\u8862\u5dde", "102": "\u8087\u5e86", "106": "\u9633\u6c5f", "112": "\u4e91\u6d6e", "118": "\u90a2\u53f0", "121": "\u8bb8\u660c", "127": "\u9633\u6cc9", "128": "\u8fd0\u57ce", "129": "\u6986\u6797", "134": "\u8944\u9633", "135": "\u5b5d\u611f", "142": "\u682a\u6d32", "144": "\u6e58\u6f6d", "153": "\u81ea\u8d21", "155": "\u6cf8\u5dde", "159": "\u65b0\u4f59", "162": "\u9e70\u6f6d", "165": "\u8425\u53e3", "173": "\u9075\u4e49"}}, "name": "DriverRecruitment[city_id]", "type": "modal"}, function (city_id, city_name) {
+//      var city_id = arguments[0];
+//      jQuery.post(
+//      '/district',
+//      {
+//        'city_id': city_id
+//      },
+//      function (d) {
+//        jQuery('#DriverRecruitment_district_id').html(d);
+//      }
+//      );
+//
+//    });
+
+    jQuery('#yw1').after("<a id=\"yw1_button\" href=\"\/captcha?refresh=1\">\u53d6\u5f97\u4e00\u7ec4\u65b0\u4ee3\u7801<\/a>");
+    jQuery(document).on('click', '#yw1_button', function () {
+      jQuery.ajax({
+        url: "\/captcha?refresh=1",
+        dataType: 'json',
+        cache: false,
+        success: function (data) {
+          jQuery('#yw1').attr('src', data['url']);
+          jQuery('body').data('captcha.hash', [data['hash1'], data['hash2']]);
+        }
+      });
+      return false;
+    });
+
+
+  });
+  $(function () {
+    var mCityList = {
+      method: "open.city.list"
+    }
+    $.when(Common.getTemplate("templates/liveCityList.temp")).then(function (t) {
+      if (t=="") {
+        return false;
+      }
+      $.when(Common.getRequest(mCityList)).then(function (d) {
+        if (!CU.isSucceed(d)) {
+          return false;
+        }
+        var lCities = doT.template(t);
+        $("#yw0").html(lCities(d.cityList));
+        $("#yw0").bind("change", function () {
+          var tt = $(this).attr("value");
+          if (tt == "") {
+            alert("请选择城市");
+            return;
+          }
+          var mCity = {
+            method: "driver.signup.districts",
+            params: {
+              city_id: tt
+            }
+          }
+          $.when(Common.getTemplate("templates/liveDistrictList.temp")).then(function (temp) {
+            if (temp == "") {
+              return false;
+            }
+            $.when(Common.getRequest(mCity)).then(function (r) {
+              if (CU.isSucceed(r)) {
+                var lDistricts = doT.template(temp);
+                $("#DriverRecruitment_district_id").html(lDistricts(r.districts));
+              }
+            });
+          });
+
+        });
+      });
+
+    });
+  });
+
+  /*]]>*/
+</script>
+</body>
+
+</html>
