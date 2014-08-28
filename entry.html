@@ -12,7 +12,7 @@
   <script type="text/javascript" src="js/doT.min.js"></script>
   <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
   <script type="text/javascript" src="js/jquery.md5.js"></script>
-  <!--<script type="text/javascript" src="js/jquery.form.js"></script>-->
+  <script type="text/javascript" src="js/jquery.form.js"></script>
   <script type="text/javascript" src="js/common.js"></script>
   <!--<script type="text/javascript" src="http://zhaopin.edaijia.cn/cache/assets/f21088ba/citypicker.js"></script>-->
 
@@ -29,7 +29,7 @@
           var $this = $(this);
           if (colId == $this.data("col-id"))
             $this.show().find("section.straight-matter").hide().eq(0).show();
-          $("ul.section-nav").find("li").removeClass("active").eq(0).addClass("active");
+          $this.find("ul.section-nav").find("li").removeClass("active").eq(0).addClass("active");
 
         });
       });
@@ -55,18 +55,21 @@
 <body>
 <header class="header-container">
   <nav class="top-nav">
+    <div class="logo-btn">
+      <a href="index.html"></a>
+    </div>
     <ul class="top-nav-container">
       <li class="nav-item"><a href="index.html"><span class="top-nav-font">首页</span></a></li>
       <li class="nav-item"><a href="vip.html"><span class="top-nav-font">VIP办理</span></a></li>
       <li class="nav-item"><a href="wedding.html"><span class="top-nav-font">婚庆代驾</span></a></li>
       <li class="nav-item"><a href="#" class="activated"><span class="top-nav-font">司机报名</span></a></li>
       <li class="nav-item"><a href=""><span class="top-nav-font">最新活动</span></a></li>
-      <li class="nav-item"><a href="about.html"><span class="top-nav-font">关于我们</span></a></li>
+      <li class="nav-item"><a href="aboutus.html"><span class="top-nav-font">关于我们</span></a></li>
       <li class="nav-item"><a href="questions.html"><span class="top-nav-font">常见问答</span></a></li>
     </ul>
   </nav>
   <div class="banners-container">
-    <img src="img/entry.jpg">
+    <img src="img/banner-entry.jpg">
   </div>
 </header>
 <div class="content-container secondary">
@@ -90,8 +93,253 @@
 
 </div>
 <!--在线报名-->
-<div class="col-container" style="display: none;" data-col-id="3" data-edj-temp="signUp">
+<div class="col-container" style="display: none;" data-col-id="3">
+<div class="signup-content">
+<form id="driver-zhaopin-form">
+<!--<form id="driver-zhaopin-form" action="" method="">-->
 
+<section id="driverinfo" class="driverinfo">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header">
+        <h2>1. 个人信息（必填）</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <!--姓名-->
+    <div class="span4">
+      <label for="DriverRecruitment_name" class="required">姓名 <span class="required">*</span></label>
+      <input size="50" maxlength="50" name="name" id="DriverRecruitment_name" type="text" value=""/>
+    </div>
+    <!--手机-->
+    <div class="span4">
+      <label for="DriverRecruitment_mobile" class="required">手机号 <span class="required">*</span></label>
+      <input size="20" maxlength="20" name="mobile" id="DriverRecruitment_mobile" type="text" value=""/>
+    </div>
+    <div class="span4">
+      <b style="color:red;">
+        请确保手机号填写正确。
+        我们将会通过短信通知面试信息
+      </b>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <!--身份证号-->
+    <div class="span4">
+      <label for="DriverRecruitment_id_card" class="required">身份证号 <span class="required">*</span></label>
+      <input size="20" maxlength="20" onkeyup="document.getElementById('DriverRecruitment_driver_card').value =this.value;" name="id_card" id="DriverRecruitment_id_card" type="text" value=""/>
+    </div>
+    <!--驾驶证号-->
+    <div class="span4">
+      <label for="DriverRecruitment_driver_card" class="required">驾照号码 <span class="required">*</span></label>
+      <input size="50" maxlength="50" name="driver_card" id="DriverRecruitment_driver_card" type="text" value=""/>
+    </div>
+    <!--驾照档案编号-->
+    <div class="span4">
+      <label for="DriverRecruitment_id_driver_card" class="required">驾照档案编号 <span class="required">*</span></label>
+      <input name="id_driver_card" id="DriverRecruitment_id_driver_card" type="text" maxlength="12" value=""/>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <!--驾照申领日期-->
+    <div class="span4">
+      <label for="DriverRecruitment_driver_year" class="required">驾照申领日期 <span class="required">*</span></label>
+      <input style="height:18px" id="DriverRecruitment_driver_year" name="driver_year" type="text" value=""/>
+    </div>
+    <!--性别-->
+    <div class="span4">
+      <label for="DriverRecruitment_gender" class="required">性别 <span class="required">*</span></label>
+      <select name="gender" id="DriverRecruitment_gender">
+        <option value="1" selected="selected">男</option>
+        <option value="2">女</option>
+      </select></div>
+    <!--年龄-->
+    <div class="span4">
+      <label for="DriverRecruitment_age" class="required">年龄
+        <span class="required">*</span></label>
+      <input size="20" maxlength="20" name="age" id="DriverRecruitment_age" type="text" value="0"/>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <!--户籍-->
+    <div class="span4">
+      <label class="required" for="DriverRecruitment_domicile">户籍 <span class="required">*</span></label>
+      <select name="domicile" id="s1" style="width:110px;">
+
+      </select>
+      <select name="register_city" id="s2" style="width:110px;">
+        <option value="">选择城</option>
+      </select>
+    </div>
+  </div>
+</section>
+<section id="certificateinfo" class="certificateinfo">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header">
+        <h2>2. 合作相关信息（必填）</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <!--准驾车型-->
+    <div class="span4">
+      <label for="DriverRecruitment_driver_type" class="required">准驾车型 <span class="required">*</span></label>
+      <select name="driver_type" id="DriverRecruitment_driver_type">
+        <option value="0" selected="selected">A1</option>
+        <option value="1">A2</option>
+        <option value="2">A3</option>
+        <option value="3">B1</option>
+        <option value="4">B2</option>
+        <option value="5">C1</option>
+      </select></div>
+    <!-熟练驾驶车型->
+    <div class="span4" style="width:580px">
+      <div>熟练驾驶车型*</div>
+      <input id="ytDriverRecruitment_driver_cars" type="hidden" value="" name="driver_cars"/><span id="DriverRecruitment_driver_cars">
+      <div style="float:left">
+        <input id="DriverRecruitment_driver_cars_0" value="1" type="checkbox" name="driver_cars"/>
+        <label style="display:inline;" for="DriverRecruitment_driver_cars_0">微/小型车</label></div><div style="float:left">
+      <input id="DriverRecruitment_driver_cars_1" value="2" type="checkbox" name="driver_cars"/>
+      <label style="display:inline;" for="DriverRecruitment_driver_cars_1">普通轿车</label></div><div style="float:left">
+      <input id="DriverRecruitment_driver_cars_2" value="3" type="checkbox" name="driver_cars"/>
+      <label style="display:inline;" for="DriverRecruitment_driver_cars_2">高档轿车</label></div><div style="float:left">
+      <input id="DriverRecruitment_driver_cars_3" value="4" type="checkbox" name="driver_cars"/>
+      <label style="display:inline;" for="DriverRecruitment_driver_cars_3">商务/大型车辆</label></div><div style="float:left">
+      <input id="DriverRecruitment_driver_cars_4" value="5" type="checkbox" name="driver_cars"/>
+      <label style="display:inline;" for="DriverRecruitment_driver_cars_4">MPV/SUV等</label></div></span>
+      <input class="checkallcars" type="checkbox" value="1" name="checkallcars" id="checkallcars"/>
+      <label style='display:inline;line-height: 40px;' for='checkallcars'>全选</label>
+      <script language="javascript">
+
+        $(document).ready(function () {
+          // powerful jquery ! Clicking on the checkbox 'checkAll' change the state of all checkbox
+          $('.checkallcars').click(function () {
+            $("input[id^='DriverRecruitment_driver_cars']:not([disabled='disabled'])").attr('checked', this.checked);
+          });
+        });
+      </script>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <!--城-->
+    <div class="span4">
+      <label for="DriverRecruitment_city_id" class="required">居住城市 <span class="required">*</span></label>
+
+      <div class="input-append">
+        <select style="width: 220px; cursor: pointer;" id="yw0" type="text" name="city_list">
+          <option value="0" selected="selected">--请选择城市--</option>
+        </select>
+        <input type="hidden" name="city_id" id="DriverRecruitment_city_id"/>
+        <!--<span class="add-on" id="dropdown"><i class="icon-chevron-down"></i></span>-->
+      </div>
+    </div>
+    <!--居住区域-->
+    <div class="span4">
+      <label for="DriverRecruitment_district_id" class="required">居住区域 <span class="required">*</span></label>
+      <select name="district_id" id="DriverRecruitment_district_id">
+        <option value="0" selected="selected">--请选择区域--</option>
+      </select>
+    </div>
+    <!--工作方式-->
+
+  </div>
+  <div class="row-fluid">
+    <!--居住详细地址-->
+    <div class="span6">
+      <label for="DriverRecruitment_address" class="required">居住详细地址 <span class="required">*</span></label>
+      <input size="50" maxlength="50" style="width:500px;" name="address" id="DriverRecruitment_address" type="text" value=""/>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <!--来源渠道-->
+    <div class="span4">
+      <label for="DriverRecruitment_src" class="required">来源渠道 <span class="required">*</span></label>
+      <select name="src" id="DriverRecruitment_src">
+        <option value="0" selected="selected">e代驾</option>
+        <option value="1">前程无忧</option>
+        <option value="2">智联招聘</option>
+        <option value="3">58同城</option>
+        <option value="4">赶集网</option>
+        <option value="5">微博</option>
+        <option value="6">朋友介绍</option>
+        <option value="7">电视/报纸宣传</option>
+        <option value="8">其他（请举例）</option>
+      </select>
+      <input size="20" maxlength="20" style="display:none" name="other_src" id="DriverRecruitment_other_src" type="text"/>
+    </div>
+    <div class="span4" id="recommender" style="display: none">
+      <label for="DriverRecruitment_recommender">推荐人编号(如：BJ9000)</label>
+      <input size="20" maxlength="10" name="recommender" id="DriverRecruitment_recommender" type="text" value=""/>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <!--紧急联系人姓名-->
+    <div class="span4">
+      <label for="DriverRecruitment_contact" class="required">紧急联系人姓名 <span class="required">*</span></label>
+      <input size="20" maxlength="20" name="contact" id="DriverRecruitment_contact" type="text" value=""/>
+    </div>
+    <!--紧急联系人电话-->
+    <div class="span4">
+      <label for="DriverRecruitment_contact_phone" class="required">电话 <span class="required">*</span></label>
+      <input size="20" maxlength="20" name="contact_phone" id="DriverRecruitment_contact_phone" type="text" value=""/>
+    </div>
+    <!--紧急联系人关系-->
+    <div class="span4">
+      <label for="DriverRecruitment_contact_relate" class="required">关系 <span class="required">*</span></label>
+      <input size="20" maxlength="20" name="contact_relate" id="DriverRecruitment_contact_relate" type="text" value=""/>
+    </div>
+  </div>
+</section>
+<section id="experience" class="experience">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header">
+        <h2>3.代驾经验（选填）</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <label for="DriverRecruitment_experience">代驾经验</label>
+      <textarea class="span12" style="height: 200px;" name="experience" id="DriverRecruitment_experience"></textarea>
+    </div>
+  </div>
+</section>
+<section id="confirm" class="confirm">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="page-header">
+        <h2>4.请阅读并同意<a href="/agreement" target="_blank">《e代驾代驾员合作协议》</a></label></h2>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <p><label><input type="checkbox" value="1" name="agree" id="agree"/>确认同意</label></p>
+
+      <p>1.以上填写的信息属实，提供的证件真实有效，一旦被发现有不属实的地方，愿意接受e代驾任何处理方式，甚至解除合作。</p>
+
+      <p>2.确认与公司的合作出于自愿，接受服务信息，获得合作利益的同时依法履行合作的义务。</p>
+    </div>
+  </div>
+</section>
+<section id="submit" class="submit">
+  <div style='margin:0 auto;width:400px'>
+    请输入验证码:
+    <img id="yw1" src="http://zhaopin.edaijia.cn/captcha?v=53ec32625f509" alt=""/><a id="yw1_button" href="http://zhaopin.edaijia.cn/captcha?refresh=1">取得一组新代码</a>
+    <input size="20" maxlength="20" name="verifyCode" id="DriverRecruitment_verifyCode" type="text"/>
+    <br><br>
+    <input class="span3 btn-large btn-success btn-block" type="button" name="yt0" value="提交报名表"/>
+    <br><br><br><br>
+  </div>
+</section>
+</form>
+</div>
+
+<script src="js/signup.js"></script>
 </div>
 <!--在线报名-->
 
@@ -100,14 +348,24 @@
   <div class=" exam-content">
     <div class="row" style=" margin: 140px auto auto 280px;">
       <div class="span6">
-        <form id="yw0" action="/exam" method="post">
-          <label for="id_card">请输入身份证号</label>
-          <input type="text" id="id_card" name="id_card" value="" style="float:left">&nbsp;
-          <input class="btn" type="submit" name="yt0" value="开始考试">
+        <form id="yw0">
+          <label for="exam_id_card">请输入身份证号</label>
+          <input type="text" id="exam_id_card" name="id_card" value="" style="float:left">&nbsp;
+          <input id="start_exam" class="btn" type="button" name="yt0" value="开始考试">
         </form>
       </div>
       <input type="text" style="display:none;" id="id_cards" name="id_cards" value="1">
     </div>
+  </div>
+  <div class="success"  style="display: none;">
+    <h2>考试通过</h2>
+    <p>恭喜您，你已通过在线考试，e代驾工作
+      人员将在7个工作日内联系您参加面试，请注意
+      查收短信和电话，谢谢。</p>
+  </div>
+  <div class="failed"  style="display: none;">
+    <h2>对不起</h2>
+    <p>您的考试未通过请重新参加考试</p>
   </div>
 </div>
 <script language='javascript' type='text/javascript'>
@@ -333,9 +591,9 @@
     <div class="row" style=" margin: 140px auto auto 280px;">
       <div class="span6">
         <form id="yw0" action="/queue" method="post">
-          <label for="id_card">请输入身份证号</label>
-          <input type="text" id="id_card" name="id_card" value=""/>
-          <input class="btn" type="submit" name="yt0" value="查询"/>
+          <label for="query_id_card">请输入身份证号</label>
+          <input type="text" id="query_id_card" name="id_card" value="" style="float:left;"/>&nbsp;
+          <input class="btn" type="button" name="yt0" value="查询"/>
         </form>
       </div>
     </div>
@@ -367,32 +625,123 @@
 <script type="text/javascript" src="http://zhaopin.edaijia.cn/cache/assets/90e46583/jquery-ui-timepicker-addon.js"></script>
 <script type="text/javascript">
   /*<![CDATA[*/
-  jQuery(function ($) {
+  $(function ($) {
+    $("#start_exam").on("click", function () {
+      var id_card = $("#exam_id_card").val();
 
-    jQuery('#DriverRecruitment_driver_year').datepicker(jQuery.extend({showMonthAfterYear: false}, jQuery.datepicker.regional['zh'], {'dateFormat': 'yy-mm-dd', 'changeYear': true, 'changeMonth': true}));
-//    jQuery('#yw0').citypicker({"cityList": {"\u70ed\u95e8\u57ce\u5e02": {"1": "\u5317\u4eac", "3": "\u4e0a\u6d77", "5": "\u5e7f\u5dde", "6": "\u6df1\u5733", "4": "\u676d\u5dde", "8": "\u5357\u4eac", "2": "\u6210\u90fd", "7": "\u91cd\u5e86"}, "A-F": {"1": "\u5317\u4eac", "2": "\u6210\u90fd", "7": "\u91cd\u5e86", "9": "\u957f\u6c99", "21": "\u5927\u8fde", "27": "\u798f\u5dde", "28": "\u4f5b\u5c71", "31": "\u5e38\u5dde", "32": "\u4e1c\u839e", "36": "\u957f\u6625", "39": "\u5305\u5934", "66": "\u978d\u5c71", "71": "\u5927\u540c", "86": "\u4e1c\u8425", "90": "\u5fb7\u5dde", "92": "\u6ee8\u5dde", "109": "\u6f6e\u5dde", "116": "\u6ca7\u5dde", "117": "\u4fdd\u5b9a", "119": "\u5b89\u9633", "124": "\u957f\u6cbb", "130": "\u5b9d\u9e21", "140": "\u5e38\u5fb7", "143": "\u5f6c\u5dde", "146": "\u868c\u57e0", "148": "\u5b89\u5e86", "150": "\u961c\u9633", "152": "\u5fb7\u9633", "168": "\u629a\u987a", "169": "\u672c\u6eaa", "174": "\u6bd5\u8282", "175": "\u90f4\u5dde", "177": "\u8fbe\u5dde"}, "G-J": {"4": "\u676d\u5dde", "5": "\u5e7f\u5dde", "15": "\u6d4e\u5357", "23": "\u5408\u80a5", "24": "\u54c8\u5c14\u6ee8", "33": "\u8d35\u9633", "38": "\u547c\u548c\u6d69\u7279", "41": "\u6d77\u53e3", "49": "\u91d1\u534e", "51": "\u5609\u5174", "53": "\u6e56\u5dde", "54": "\u60e0\u5dde", "85": "\u6d4e\u5b81", "94": "\u83cf\u6cfd", "101": "\u6c5f\u95e8", "104": "\u63ed\u9633", "110": "\u6cb3\u6e90", "113": "\u6dee\u5b89", "115": "\u90af\u90f8", "120": "\u7126\u4f5c", "123": "\u6f2f\u6cb3", "125": "\u664b\u57ce", "133": "\u6c49\u4e2d", "136": "\u9ec4\u77f3", "137": "\u9ec4\u5188", "138": "\u8346\u5dde", "139": "\u8346\u95e8", "141": "\u8861\u9633", "147": "\u6dee\u5357", "149": "\u6dee\u5317", "158": "\u4e5d\u6c5f", "161": "\u666f\u5fb7\u9547", "164": "\u8d63\u5dde", "167": "\u9526\u5dde"}, "K-N": {"8": "\u5357\u4eac", "12": "\u5b81\u6ce2", "17": "\u6606\u660e", "26": "\u5357\u660c", "34": "\u5170\u5dde", "35": "\u5357\u5b81", "37": "\u5357\u901a", "57": "\u9a6c\u978d\u5c71", "61": "\u6d1b\u9633", "63": "\u5eca\u574a", "67": "\u8fbd\u9633", "73": "\u8fde\u4e91\u6e2f", "74": "\u4e3d\u6c34", "78": "\u62c9\u8428", "81": "\u9f99\u5ca9", "82": "\u5357\u5e73", "87": "\u4e34\u6c82", "91": "\u804a\u57ce", "96": "\u83b1\u829c", "100": "\u8302\u540d", "108": "\u6885\u5dde", "126": "\u4e34\u6c7e", "151": "\u7ef5\u9633", "156": "\u4e50\u5c71", "157": "\u5185\u6c5f", "172": "\u5f00\u5c01", "176": "\u5415\u6881"}, "P-W": {"3": "\u4e0a\u6d77", "6": "\u6df1\u5733", "10": "\u6b66\u6c49", "13": "\u6e29\u5dde", "14": "\u5929\u6d25", "16": "\u82cf\u5dde", "19": "\u6c88\u9633", "20": "\u9752\u5c9b", "25": "\u77f3\u5bb6\u5e84", "29": "\u592a\u539f", "30": "\u65e0\u9521", "40": "\u5a01\u6d77", "42": "\u4e4c\u9c81\u6728\u9f50", "47": "\u6cf0\u5dde", "50": "\u7ecd\u5174", "52": "\u53f0\u5dde", "58": "\u6cc9\u5dde", "64": "\u79e6\u7687\u5c9b", "65": "\u5510\u5c71", "80": "\u8386\u7530", "83": "\u4e09\u660e", "84": "\u6f4d\u574a", "89": "\u6cf0\u5b89", "95": "\u65e5\u7167", "103": "\u6c55\u5934", "105": "\u6e05\u8fdc", "107": "\u97f6\u5173", "111": "\u6c55\u5c3e", "114": "\u5bbf\u8fc1", "122": "\u5e73\u9876\u5c71", "131": "\u94dc\u5ddd", "132": "\u6e2d\u5357", "145": "\u829c\u6e56", "154": "\u6500\u679d\u82b1", "160": "\u840d\u4e61", "166": "\u76d8\u9526", "170": "\u94c1\u5cad", "171": "\u5546\u4e18"}, "X-Z": {"11": "\u897f\u5b89", "18": "\u90d1\u5dde", "22": "\u53a6\u95e8", "43": "\u94f6\u5ddd", "44": "\u626c\u5dde", "46": "\u9547\u6c5f", "48": "\u5f90\u5dde", "55": "\u4e2d\u5c71", "56": "\u73e0\u6d77", "59": "\u6dc4\u535a", "60": "\u70df\u53f0", "62": "\u65b0\u4e61", "68": "\u5b9c\u660c", "69": "\u5cb3\u9633", "70": "\u5b9c\u5bbe", "72": "\u54b8\u9633", "75": "\u76d0\u57ce", "76": "\u6e5b\u6c5f", "77": "\u897f\u5b81", "79": "\u6f33\u5dde", "93": "\u67a3\u5e84", "97": "\u4e49\u4e4c", "98": "\u821f\u5c71", "99": "\u8862\u5dde", "102": "\u8087\u5e86", "106": "\u9633\u6c5f", "112": "\u4e91\u6d6e", "118": "\u90a2\u53f0", "121": "\u8bb8\u660c", "127": "\u9633\u6cc9", "128": "\u8fd0\u57ce", "129": "\u6986\u6797", "134": "\u8944\u9633", "135": "\u5b5d\u611f", "142": "\u682a\u6d32", "144": "\u6e58\u6f6d", "153": "\u81ea\u8d21", "155": "\u6cf8\u5dde", "159": "\u65b0\u4f59", "162": "\u9e70\u6f6d", "165": "\u8425\u53e3", "173": "\u9075\u4e49"}}, "name": "DriverRecruitment[city_id]", "type": "modal"}, function (city_id, city_name) {
-//      var city_id = arguments[0];
-//      jQuery.post(
-//      '/district',
-//      {
-//        'city_id': city_id
-//      },
-//      function (d) {
-//        jQuery('#DriverRecruitment_district_id').html(d);
-//      }
-//      );
-//
-//    });
+      if (!checkIdcard(id_card)) {
+        alert('请输入正确的身份证号码');
+        return false;
+      }
+      var mExam = {
+        method: "driver.signup.exam",
+        params: {
+          "id_card": id_card
+        }
+      }
+      var wrongResult = 0;
+      $.when(Common.getRequest(mExam)).then(function (str) {
+        if (CU.isSucceed(str)) {
+          questions = str.data;
 
-    jQuery('#yw1').after("<a id=\"yw1_button\" href=\"\/captcha?refresh=1\">\u53d6\u5f97\u4e00\u7ec4\u65b0\u4ee3\u7801<\/a>");
-    jQuery(document).on('click', '#yw1_button', function () {
-      jQuery.ajax({
+
+          $.when(Common.getTemplate("templates/exam.temp")).then(function (t) {
+            if (t == "") {
+              return false;
+            }
+            var lQuestions = doT.template(t);
+            $(".exam-content").parent().remove(".questions-container").append(lQuestions(questionsSerialize(questions)));
+            $(".questions-container").data("id_card",id_card);
+            addExamEvent();
+          });
+
+        }
+
+      });
+      return false;
+    });
+    var customAnswers = [];
+
+    function addExamEvent() {
+      wrongResult = 0;
+      $(".exam-content").hide();
+      $(".questions-container").show();
+      $("#answers_submit").on("click", function () {
+        var $this=$(this);
+        var $questions=$(".questions-container");
+        var $parent=$questions.parent();
+        var card=$questions.data("id_card");
+        var qid=$questions.data("qid");
+        $(".question-container").each(checkAnswer);
+        if(!wrongResult){
+          var mExampass={
+            method:"driver.signup.exampass",
+            params:{
+              "id_card":card,
+              "q_id":qid
+            }
+          }
+          $.when(Common.getRequest(mExampass)).then(function(str){
+            if(CU.isSucceed(str)){
+              $questions.remove();
+              $parent.find(".success").show();
+            }
+          });
+
+        }else{
+          $parent.find(".failed").show();
+          $this.text("重新考试").off("click").on("click",function(){
+            $questions.remove();
+            $parent.find(".failed").hide();
+            $parent.find(".exam-content").show();
+          });
+        }
+      });
+    }
+
+    function questionsSerialize(d) {
+
+      for (var i = 0; i < d.length; i++) {
+        var answers = {};
+        var answerLetter = "ABCDEFGHIGKLMNOPQRSTUVWXYZ";
+        for (var j = 0; j < d[i].contents.length; j++) {
+          answers[answerLetter.substr(j, 1)] = d[i].contents[j];
+        }
+        d[i].contents = answers;
+      }
+      return d;
+    }
+
+    function checkAnswer() {
+      var $this = $(this), name = $this.data("name"), $answers = $(this).find("input[name='" + name + "']:checked"), answer = [];
+      $answers.each(function () {
+        answer.push($(this).val());
+      });
+      answer = answer.sort().join(",");
+      if ($this.data("answer").split(/,|，/).sort().join(",") == answer) {
+        $(this).hide();
+      }
+      else {
+        wrongResult++;
+        $this.find("input").hide();
+        var alertStr = '<p style="color:red;">正确答案：' + $this.data("answer") + '。 您的答案：' + answer + '</span>';
+        $this.append(alertStr);
+      }
+
+
+    }
+
+    $('#DriverRecruitment_driver_year').datepicker(jQuery.extend({showMonthAfterYear: false}, jQuery.datepicker.regional['zh'], {'dateFormat': 'yy-mm-dd', 'changeYear': true, 'changeMonth': true}));
+
+    $('#yw1').after("<a id=\"yw1_button\" href=\"\/captcha?refresh=1\">\u53d6\u5f97\u4e00\u7ec4\u65b0\u4ee3\u7801<\/a>");
+    $(document).on('click', '#yw1_button', function () {
+      $.ajax({
         url: "\/captcha?refresh=1",
         dataType: 'json',
         cache: false,
         success: function (data) {
-          jQuery('#yw1').attr('src', data['url']);
-          jQuery('body').data('captcha.hash', [data['hash1'], data['hash2']]);
+          $('#yw1').attr('src', data['url']);
+          $('body').data('captcha.hash', [data['hash1'], data['hash2']]);
         }
       });
       return false;
@@ -405,7 +754,7 @@
       method: "open.city.list"
     }
     $.when(Common.getTemplate("templates/liveCityList.temp")).then(function (t) {
-      if (t=="") {
+      if (t == "") {
         return false;
       }
       $.when(Common.getRequest(mCityList)).then(function (d) {

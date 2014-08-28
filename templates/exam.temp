@@ -1,0 +1,26 @@
+
+
+<section class="questions-container" style="display: none" data-qid="{{~it:questions:index}}{{=questions.id}},{{~}}">
+  {{~it:question:index}}
+  <div class="question-container" data-name="question-{{=index+1}}" data-answer="{{=question.correct}}"  data-question-id="{{=question.id}}">
+    <dl>
+      <dt>
+      {{=index+1}}. {{=question.title}}
+      <span style="color:red;">
+        ({{? question.type=="0"}}单选题{{?? question.type=="1"}}多选题{{?}})</span>
+      </dt>
+
+      {{ for(var i in question.contents){}}
+      {{? question.type=="0"}}
+      <dd><input type="radio" name="question-{{=index+1}}" value="{{=i}}"/><span>{{=i+"."}} {{=question.contents[i]}}</span></dd>
+      {{?? question.type=="1"}}
+      <dd><input type="checkbox" name="question-{{=index+1}}" value="{{=i}}"/><span>{{=i+"."}} {{=question.contents[i]}}</span></dd>
+      {{?}}
+      {{}}}
+    </dl>
+  </div>
+  {{~}}
+  <div class="submit_btn">
+    <a class="btn btn-primary btn-large answers_submit" id="answers_submit">提交答案</a>
+  </div>
+</section>

@@ -4,26 +4,34 @@
   <meta charset="UTF-8">
   <title></title>
   <link href="css/reset.min.css" type="text/css" rel="stylesheet"/>
-  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap-responsive.css" />
+  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap-responsive.css"/>
   <link href="css/main.css" type="text/css" rel='stylesheet'/>
-  <script src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.md5.js"></script>
+  <script type="text/javascript" src="js/jquery.form.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/vip.js"></script>
+
 </head>
 <body>
 <header class="header-container">
   <nav class="top-nav">
+    <div class="logo-btn">
+      <a href="index.html"></a>
+    </div>
     <ul class="top-nav-container">
       <li class="nav-item"><a href="index.html"><span class="top-nav-font">首页</span></a></li>
       <li class="nav-item"><a href="#" class="activated"><span class="top-nav-font">VIP办理</span></a></li>
       <li class="nav-item"><a href="wedding.html"><span class="top-nav-font">婚庆代驾</span></a></li>
       <li class="nav-item"><a href="entry.html"><span class="top-nav-font">司机报名</span></a></li>
       <li class="nav-item"><a href=""><span class="top-nav-font">最新活动</span></a></li>
-      <li class="nav-item"><a href="about.html"><span class="top-nav-font">关于我们</span></a></li>
+      <li class="nav-item"><a href="aboutus.html"><span class="top-nav-font">关于我们</span></a></li>
       <li class="nav-item"><a href="questions.html"><span class="top-nav-font">常见问答</span></a></li>
     </ul>
   </nav>
   <div class="banners-container">
-    <img src="img/VIP.jpg">
+    <img src="img/banner-vip.jpg">
   </div>
 </header>
 <div class="content-container secondary">
@@ -32,139 +40,167 @@
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span7">
-            <form id="apply-vip-form" action="/vip/" method="post">                                                <div class="control-group">
-              <label class="control-label required" for="VipApply_name"><span style="color:red;">*</span> 申请人姓名</label>                    <div class="controls">
-              <input class="input-xlarge info" placeholder="申请人姓名" name="VipApply[name]" id="VipApply_name" type="text" maxlength="40" />                    </div>
-            </div>
+            <form id="apply-vip-form">
               <div class="control-group">
-                <label class="control-label required" for="VipApply_phone"><span style="color:red;">*</span> 申请人电话</label>                    <div class="controls">
-                <input class="input-xlarge info" placeholder="申请人电话" name="VipApply[phone]" id="VipApply_phone" type="text" maxlength="32" />                    </div>
+                <label class="control-label required" for="VipApply_name"><span style="color:red;">*</span> 申请人姓名</label>
+
+                <div class="controls">
+                  <input class="input-xlarge info" placeholder="申请人姓名" name="name" id="VipApply_name" type="text" maxlength="40"/>
+                </div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="VipApply_type">申请类型</label>                    <div class="controls">
-                <select class="info" name="type" id="type">
-                  <option value="0" selected="selected">企业</option>
-                  <option value="1">个人</option>
-                </select>                    </div>
+                <label class="control-label required" for="VipApply_phone"><span style="color:red;">*</span> 申请人电话</label>
+
+                <div class="controls">
+                  <input class="input-xlarge info" placeholder="申请人电话" name="phone" id="VipApply_phone" type="text" maxlength="32"/>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="VipApply_type">申请类型</label>
+
+                <div class="controls">
+                  <select class="info" name="type" id="type">
+                    <option value="0" selected="selected">企业</option>
+                    <option value="1">个人</option>
+                  </select></div>
               </div>
               <div class="control-group company_name_type">
-                <label class="control-label" for="VipApply_company_name">公司名称</label>                    <div class="controls">
-                <input class="input-xlarge info" placeholder="公司名称" name="VipApply[company_name]" id="VipApply_company_name" type="text" maxlength="160" />                    </div>
+                <label class="control-label" for="VipApply_company_name">公司名称</label>
+
+                <div class="controls">
+                  <input class="input-xlarge info" placeholder="公司名称" name="company_name" id="VipApply_company_name" type="text" maxlength="160"/>
+                </div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="VipApply_mail">邮件地址</label>                    <div class="controls">
-                <input class="input-xlarge info" placeholder="邮件地址" name="VipApply[mail]" id="VipApply_mail" type="text" maxlength="50" />                    </div>
+                <label class="control-label" for="VipApply_mail">邮件地址</label>
+
+                <div class="controls">
+                  <input class="input-xlarge info" placeholder="邮件地址" name="mail" id="VipApply_mail" type="text" maxlength="50"/>
+                </div>
               </div>
               <div class="control-group">
-                <label class="control-label required" for="VipApply_city_id"><span style="color:red;">*</span> 办理城市</label>                    <div class="controls">
-                <select class="info" name="VipApply[city_id]" id="VipApply_city_id">
-                  <option value="0">请选择城市</option>
-                  <option value="1">北京</option>
-                  <option value="2">成都</option>
-                  <option value="3">上海</option>
-                  <option value="4">杭州</option>
-                  <option value="5">广州</option>
-                  <option value="6">深圳</option>
-                  <option value="7">重庆</option>
-                  <option value="8">南京</option>
-                  <option value="9">长沙</option>
-                  <option value="10">武汉</option>
-                  <option value="11">西安</option>
-                  <option value="12">宁波</option>
-                  <option value="13">天津</option>
-                  <option value="14">济南</option>
-                  <option value="15">苏州</option>
-                  <option value="16">郑州</option>
-                  <option value="17">沈阳</option>
-                  <option value="18">青岛</option>
-                  <option value="19">大连</option>
-                  <option value="20">厦门</option>
-                  <option value="21">合肥</option>
-                  <option value="22">哈尔滨</option>
-                  <option value="23">石家庄</option>
-                  <option value="24">福州</option>
-                  <option value="25">太原</option>
-                  <option value="26">无锡</option>
-                  <option value="27">常州</option>
-                  <option value="28">嘉兴</option>
-                  <option value="29">绍兴</option>
-                  <option value="30">金华</option>
-                  <option value="31">南通</option>
-                  <option value="32">镇江</option>
-                  <option value="33">扬州</option>
-                  <option value="34">湖州</option>
-                  <option value="35">徐州</option>
-                  <option value="36">大同</option>
-                  <option value="37">洛阳</option>
-                  <option value="38">珠海</option>
-                  <option value="39">海口</option>
-                  <option value="40">银川</option>
-                  <option value="41">贵阳</option>
-                  <option value="42">咸阳</option>
-                  <option value="43">泰州</option>
-                  <option value="44">唐山</option>
-                  <option value="45">连云港</option>
-                  <option value="46">丽水</option>
-                  <option value="47">盐城</option>
-                  <option value="48">湛江</option>
-                  <option value="49">佛山</option>
-                  <option value="50">汕头</option>
-                  <option value="51">阳江</option>
-                  <option value="52">漳州</option>
-                  <option value="53">威海</option>
-                  <option value="54">宜昌</option>
-                  <option value="55">潍坊</option>
-                  <option value="56">济宁</option>
-                  <option value="57">德州</option>
-                  <option value="58">宿迁</option>
-                  <option value="59">襄阳</option>
-                  <option value="60">绵阳</option>
-                  <option value="61">德阳</option>
-                  <option value="62">南昌</option>
-                  <option value="63">西宁</option>
-                  <option value="64">南宁</option>
-                  <option value="65">长春</option>
-                  <option value="66">日照</option>
-                  <option value="67">莱芜</option>
-                  <option value="68">舟山</option>
-                  <option value="69">江门</option>
-                  <option value="70">揭阳</option>
-                  <option value="71">韶关</option>
-                  <option value="72">淮安</option>
-                  <option value="73">黄石</option>
-                  <option value="74">荆州</option>
-                  <option value="75">萍乡</option>
-                  <option value="76">温州</option>
-                  <option value="77">三明</option>
-                  <option value="78">运城</option>
-                  <option value="79">渭南</option>
-                  <option value="80">汉中</option>
-                  <option value="81">新余</option>
-                  <option value="82">锦州</option>
-                </select>                    </div>
+                <label class="control-label required" for="VipApply_city_id"><span style="color:red;">*</span> 办理城市</label>
+
+                <div class="controls">
+                  <select class="info" name="city_id" id="VipApply_city_id">
+                    <option value="0">请选择城市</option>
+                    <option value="1">北京</option>
+                    <option value="2">成都</option>
+                    <option value="3">上海</option>
+                    <option value="4">杭州</option>
+                    <option value="5">广州</option>
+                    <option value="6">深圳</option>
+                    <option value="7">重庆</option>
+                    <option value="8">南京</option>
+                    <option value="9">长沙</option>
+                    <option value="10">武汉</option>
+                    <option value="11">西安</option>
+                    <option value="12">宁波</option>
+                    <option value="13">天津</option>
+                    <option value="14">济南</option>
+                    <option value="15">苏州</option>
+                    <option value="16">郑州</option>
+                    <option value="17">沈阳</option>
+                    <option value="18">青岛</option>
+                    <option value="19">大连</option>
+                    <option value="20">厦门</option>
+                    <option value="21">合肥</option>
+                    <option value="22">哈尔滨</option>
+                    <option value="23">石家庄</option>
+                    <option value="24">福州</option>
+                    <option value="25">太原</option>
+                    <option value="26">无锡</option>
+                    <option value="27">常州</option>
+                    <option value="28">嘉兴</option>
+                    <option value="29">绍兴</option>
+                    <option value="30">金华</option>
+                    <option value="31">南通</option>
+                    <option value="32">镇江</option>
+                    <option value="33">扬州</option>
+                    <option value="34">湖州</option>
+                    <option value="35">徐州</option>
+                    <option value="36">大同</option>
+                    <option value="37">洛阳</option>
+                    <option value="38">珠海</option>
+                    <option value="39">海口</option>
+                    <option value="40">银川</option>
+                    <option value="41">贵阳</option>
+                    <option value="42">咸阳</option>
+                    <option value="43">泰州</option>
+                    <option value="44">唐山</option>
+                    <option value="45">连云港</option>
+                    <option value="46">丽水</option>
+                    <option value="47">盐城</option>
+                    <option value="48">湛江</option>
+                    <option value="49">佛山</option>
+                    <option value="50">汕头</option>
+                    <option value="51">阳江</option>
+                    <option value="52">漳州</option>
+                    <option value="53">威海</option>
+                    <option value="54">宜昌</option>
+                    <option value="55">潍坊</option>
+                    <option value="56">济宁</option>
+                    <option value="57">德州</option>
+                    <option value="58">宿迁</option>
+                    <option value="59">襄阳</option>
+                    <option value="60">绵阳</option>
+                    <option value="61">德阳</option>
+                    <option value="62">南昌</option>
+                    <option value="63">西宁</option>
+                    <option value="64">南宁</option>
+                    <option value="65">长春</option>
+                    <option value="66">日照</option>
+                    <option value="67">莱芜</option>
+                    <option value="68">舟山</option>
+                    <option value="69">江门</option>
+                    <option value="70">揭阳</option>
+                    <option value="71">韶关</option>
+                    <option value="72">淮安</option>
+                    <option value="73">黄石</option>
+                    <option value="74">荆州</option>
+                    <option value="75">萍乡</option>
+                    <option value="76">温州</option>
+                    <option value="77">三明</option>
+                    <option value="78">运城</option>
+                    <option value="79">渭南</option>
+                    <option value="80">汉中</option>
+                    <option value="81">新余</option>
+                    <option value="82">锦州</option>
+                  </select></div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="VipApply_book_money">充值金额</label>                    <div class="controls">
-                <input class="input-xlarge info" placeholder="充值金额" name="VipApply[book_money]" id="VipApply_book_money" type="text" maxlength="10" />                    </div>
+                <label class="control-label" for="VipApply_book_money">充值金额</label>
+
+                <div class="controls">
+                  <input class="input-xlarge info" placeholder="充值金额" name="book_money" id="VipApply_book_money" type="text" maxlength="10"/>
+                </div>
               </div>
               <div class="control-group">
-                <label class="control-label" for="VipApply_mark">备注</label>                    <div class="controls">
-                <textarea rows="6" class="input-xlarge info" placeholder="备注" name="VipApply[mark]" id="VipApply_mark"></textarea>                    </div>
+                <label class="control-label" for="VipApply_mark">备注</label>
+
+                <div class="controls">
+                  <textarea rows="6" class="input-xlarge info" placeholder="备注" name="mark" id="VipApply_mark"></textarea>
+                </div>
               </div>
               <div class="control-group">
                 <label for="VipApply_verifyCode" class="control-label required"><span style="color:red;">* </span>验证码</label>
+
                 <div class="controls">
-                  <input maxlength="4" class="span4" placeholder="验证码" name="VipApply[verifyCode]" id="VipApply_verifyCode" type="text" />                        <img id="yw0" src="/v2/index.php?r=site/captcha&amp;v=53e83ba2b1476" alt="" />                    </div>
+                  <input maxlength="4" class="span4" placeholder="验证码" name="verifyCode" id="VipApply_verifyCode" type="text"/>
+                  <img id="yw0" src="http://zhaopin.edaijia.cn/captcha?v=53ec32625f509" alt=""/></div>
                 <label for="WeddingApply_verifyCode" class="control-label required"> </label>
+
                 <div class="controls">
-                  <div style="color:red;display:none" class="errorMessage" id="VipApply_verifyCode_em_"></div>                    </div>
+                  <div style="color:red;display:none" class="errorMessage" id="VipApply_verifyCode_em_"></div>
+                </div>
               </div>
               <div class="control-group">
                 <div class="controls">
                   <a class="btn btn-primary btn-large wedding_vip_submit" id="apply_vip">提交申请</a>
                 </div>
               </div>
-            </form>            </div>
+            </form>
+          </div>
           <div class="span4 span5_div_apply">
             为了方便您更加有效的利用我们提供的服务资源，节省您的宝贵时间，减少多次结算之麻烦，增加优惠幅度，特向您提供集团帐户下，最高端VIP客户体验。只需验证您提供的手机号，系统自动结算，并向您推送短信账单。
             <br/><br/>
@@ -178,27 +214,27 @@
       </div>
       <div class="c_content_bai"></div>
     </div>
-</div>
+  </div>
 
 
-<footer class="footer-container">
-  <ul class="left-nav">
-    <li class="nav-item"><a href="">关于e代驾</a></li>
-    <li class="nav-item"><a href="">e代驾招募</a></li>
-    <li class="nav-item"><a href="">服务与合作</a></li>
-    <li class="nav-item"><a href="">司机专区</a></li>
-    <li class="nav-item"><a href="">司机端APP下载</a></li>
-  </ul>
-  <ul class="right-nav">
-    <li class="nav-item weibo"><a href="">e代驾官方微博</a></li>
-    <li class="nav-item wechat"><a href="">微信号：edaijia</a></li>
-  </ul>
-  <hr class="line"/>
+  <footer class="footer-container">
+    <ul class="left-nav">
+      <li class="nav-item"><a href="">关于e代驾</a></li>
+      <li class="nav-item"><a href="">e代驾招募</a></li>
+      <li class="nav-item"><a href="">服务与合作</a></li>
+      <li class="nav-item"><a href="">司机专区</a></li>
+      <li class="nav-item"><a href="">司机端APP下载</a></li>
+    </ul>
+    <ul class="right-nav">
+      <li class="nav-item weibo"><a href="">e代驾官方微博</a></li>
+      <li class="nav-item wechat"><a href="">微信号：edaijia</a></li>
+    </ul>
+    <hr class="line"/>
 
-  <span class="bottom-text">投诉建议：400-691-3939 (9:00-18:00) &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; VIP办理：010-6439-2767 (9:00-18:00)</span>
+    <span class="bottom-text">投诉建议：400-691-3939 (9:00-18:00) &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; VIP办理：010-6439-2767 (9:00-18:00)</span>
 
-  <span class="bottom-text right-content">Copyright © 2011-2013 edaijia.cn All Right Reserved 京ICP备13048976号-1 </span>
-</footer>
+    <span class="bottom-text right-content">Copyright © 2011-2013 edaijia.cn All Right Reserved 京ICP备13048976号-1 </span>
+  </footer>
 </div>
 </body>
 </html>

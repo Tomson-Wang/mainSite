@@ -163,6 +163,16 @@ Common.getTemplate = function (url) {
     }
   });
 }
+//字符串转对象
+Common.parse=function(str){
+  var arrParam = str.split("&");
+  var resObj={};
+  for(var i=0; i<arrParam.length;i++){
+    var param=arrParam[i].split("=");
+    resObj[param[0]]=!!param[1]?param[1]:"";
+  }
+  return resObj;
+}
 $(function () {
   var templateURL = "templates/";
   $("[data-edj-temp]").each(function (i, e) {
@@ -190,7 +200,8 @@ $(function () {
           console.log("the template is null");
           return false;
         }
-        $("[data-edj-temp='"+this.url.split("?")[1]+"']").html(t);
+
+        $("[data-edj-temp='"+this.url.split("?")[1]+"']").append($(t));
       }
 
     });

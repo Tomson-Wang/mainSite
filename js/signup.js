@@ -18,7 +18,9 @@ $(function(){
   });
 });
 $('document').ready(function(){
-  $('#driver-zhaopin-form').find("input[type='submit']").on("click",function(){
+//  $('#driver-zhaopin-form').find("input[type='submit']").on("click",function(){
+  $('#driver-zhaopin-form').submit(function(){
+    var $t=$(this);
     var id_card = $('#DriverRecruitment_id_card').val();
     var domicile = $('#s1').val();
     var register_city = $('#s2').val();
@@ -30,9 +32,26 @@ $('document').ready(function(){
       alert('请输入正确的身份证号码');
       return false;
     }
+    var queryStr=decodeURIComponent($(this).formSerialize());
+    var queryObj=Common.parse(queryStr);
+    console.log(queryObj);
+    var mSignUp={
+      method:"driver.signup.signup",
+      params:queryObj
+    };
+    $.when(Common.getRequest(mSignUp)).then(function(data){
+      if(CU.isSucceed(data)){
+//        alert(data.id);
+//        obj.id=data.id;
+//        stepHan.four()
+        alert("报名信息提交成功！");
+        $t.resetForm();
+      }
+    });
+    return false;
   });
 });
-function checkIdcard(idCard){
+function checkIdcard(idcard){
   var Errors=["验证通过!","身份证号码位数不对!","身份证号码出生日期超出范围或含有非法字符!","身份证号码校验错误!","身份证地区非法!"];
   var area={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江",31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外"}
   var idcard,Y,JYM;

@@ -44,7 +44,7 @@ h5{
 .line {
 	width: 100%;
 	height: 1px;
-	margin: 2px auto;
+	margin: 5px auto;
 	background-color: #d7d7d7;
 	border: 0;
 	clear: both;
@@ -120,7 +120,18 @@ div.banners-container {
 div.banners-container img{
 	width:1300px;
 }
-
+.logo-btn {
+	position: absolute;
+	display: block;
+	width: 100px;
+	height: 60px;
+	left: 144px;
+}
+.logo-btn a{
+	display: block;
+	width: 100%;
+	height:100%;
+}
 
 /*common header styles end*/
 
@@ -154,10 +165,12 @@ footer.footer-container  a:hover{
 }
 footer.footer-container ul.left-nav {
 	width:500px;
-	height: 15px;
+	height: 25px;
+	margin: 0;
 	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 	margin-left: 0;
+	/* margin: 10px 0 0px 0 !important; */
 	float: left;
 }
 ul.left-nav li {
@@ -165,6 +178,7 @@ ul.left-nav li {
 	height:20px;
 	border-left: 1px solid #d7d7d7;
 
+	line-height: 20px;
 }
 ul.left-nav li:first-child { border-left-width: 0;}
 ul.left-nav li a {
@@ -178,6 +192,7 @@ ul.left-nav li:first-child a{margin-left: 0}
 footer.footer-container ul.right-nav {
 	width:260px;
 	height: 17px;
+	margin: 0;
 	margin-top: 10px;
 	float: right;
 }
@@ -222,7 +237,7 @@ span.right-content{
 
 /*index page middle nav style*/
 nav.mid-nav {
-	display: inline-block;
+	display: block;
 	width:100%;
 	overflow: hidden;
 }
@@ -330,9 +345,9 @@ div.app-item a.download-btn{
 }
 div.app-item a.download-btn:hover,div.app-item a.download-btn:focus{
 	background-image: url("../img/download-btn.png");
-	background-position: -3px -31px;
+	background-position: -2px -30px;
 	background-repeat: no-repeat;
-	background-size: 78px 56px;
+	background-size: 77px 56px;
 }
 /*index page download container style end*/
 /*index page price container style*/
@@ -600,6 +615,7 @@ div.about article p.indent {text-indent: 2em;}
 	width:100%;
 	margin-top: 30px;
 }
+.wedding-content input[type=text]{height: 30px !important;}
 .wedding-content .span7 {
 	width: 55%;
 }
@@ -622,23 +638,24 @@ div.questions-content article p{
 /*questions styles end*/
 
 
-.wedding_vip_submit{
+.wedding_vip_submit,.answers_submit{
 	background-image: url("../img/submit-btn.png");
 	background-repeat: no-repeat;
 	-webkit-background-size: 100% 100%;
-	background-size: 111px 104px;
-	background-position: -2px -7px;
+	background-size: 110px 104px;
+	background-position: -1px -7px;
 	background-color: rgba(0,0,0,0);
 	border: 0;
 }
-a.wedding_vip_submit:focus,
-a.wedding_vip_submit:visited,
-a.wedding_vip_submit:hover{
+a.wedding_vip_submit[disabled=disabled],.answers_submit[disabled=disabled],
+a.wedding_vip_submit:focus,.answers_submit:focus,
+a.wedding_vip_submit:visited,.answers_submit:visited,
+a.wedding_vip_submit:hover,.answers_submit:hover{
 	background-image: url("../img/submit-btn.png");
 	background-repeat: no-repeat;
 	-webkit-background-size: 100% 100%;
-	background-size: 111px 104px;
-	background-position: -2px -56px;
+	background-size: 110px 104px;
+	background-position: -1px -56px;
 	background-color: rgba(0,0,0,0);
 	border: 0;
 	-webkit-transition : background-position 0 linear;
@@ -646,4 +663,54 @@ a.wedding_vip_submit:hover{
 	-ms-transition     : background-position 0 linear;
 	-o-transition      : background-position 0 linear;
 	transition         : background-position 0 linear;
+}
+
+
+
+/*vip page style*/
+.vip input[type=text]{
+	height:30px !important;
+}
+
+
+/*exam style*/
+.question-container {
+	width: 80%;
+	margin: 30px 10%;
+}
+.question-container dl {
+	margin: 20px 0;
+}
+.question-container dt {
+	line-height: 30px;
+	font-size: 18px;
+}
+.question-container dd {
+	line-height: 25px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+.question-container input[type="radio"] {
+	width: 15px;
+	height: 15px;
+	margin: 0 5px 0 0;
+}
+.question-container input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	margin: 0 5px 0 0;
+}
+.questions-container .submit_btn{
+	width: 100%;
+	margin: 50px auto;
+	text-align: center;
+}
+
+.success {
+	text-align: center;
+	margin-top: 100px;
+}
+.failed {
+	text-align: center;
+	margin-top: 20px;
 }

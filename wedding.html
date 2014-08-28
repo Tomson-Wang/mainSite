@@ -4,58 +4,143 @@
   <meta charset="UTF-8">
   <title></title>
   <link href="css/reset.min.css" type="text/css" rel="stylesheet"/>
-
-  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap-responsive.css" />
+  <link rel="stylesheet" type="text/css" href="http://zhaopin.edaijia.cn/cache/assets/63854129/jui/css/base/jquery-ui.css"/>
+  <link rel="stylesheet" type="text/css" href="http://zhaopin.edaijia.cn/cache/assets/90e46583/jquery-ui-timepicker-addon.css"/>
+  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap-responsive.css"/>
   <link href="css/main.css" type="text/css" rel='stylesheet'/>
-  <script src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.md5.js"></script>
+  <script type="text/javascript" src="js/jquery.form.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script>
+    $(function () {
+      $("#apply_wedding").on("click", function () {
+        if ($('#WeddingApply_name').val() == '') {
+          alert('申请人姓名不能为空！');
+          return false;
+        }
+        if ($('#WeddingApply_phone').val() == '') {
+          alert('联系电话不能为空！');
+          return false;
+        }
+        if ($('#run_time').val() != '') {
+          if ($('#run_time').val() == '') {
+            alert('请选择举办日期！');
+            return false;
+          }
+        }
+        if ($('#city_id').val() == '0') {
+          alert('请选择举办城市！');
+          return false;
+        }
+        if ($('#WeddingApply_detail_site').val() == '') {
+          alert('请填写宴会举办详细地址！');
+          return false;
+        }
+        if (!/^\d+$/.test($('#WeddingApply_number').val())) {
+          alert('参加人数必须是数字！');
+          return false;
+        }
+        if ($('#WeddingApply_mark').val() == '') {
+          alert('请填写宴会流程和主要内容！');
+          return false;
+        }
+        if ($('#WeddingApply_verifyCode').val() == '') {
+          alert('请输入验证码');
+          return false;
+        }
+
+        var $t = $("#wedding-apply-form");
+        var queryStr = decodeURIComponent($t.formSerialize());
+        var queryObj = Common.parse(queryStr);
+        console.log(queryObj);
+        var mWedding = {
+          method: "open.site.wedding",
+          params: queryObj
+        };
+        $.when(Common.getRequest(mWedding)).then(function (data) {
+          if (CU.isSucceed(data)) {
+            $t.resetForm();
+            $('#apply_wedding').attr('disabled', 'false');
+          }
+        });
+        $('#apply_wedding').attr('disabled', 'true');
+        return false;
+
+      });
+      $('#run_time').focus(function () {
+        $('#run_time').attr('readonly', 'readonly');
+      });
+      $('#run_time').blur(function () {
+        $('#run_time').removeAttr('readonly');
+      });
+    });
+  </script>
 </head>
 <body>
 <header class="header-container">
   <nav class="top-nav">
+    <div class="logo-btn">
+      <a href="index.html"></a>
+    </div>
     <ul class="top-nav-container">
-      <li class="nav-item"><a href=""><span class="top-nav-font">首页</span></a></li>
+      <li class="nav-item"><a href="index.html"><span class="top-nav-font">首页</span></a></li>
       <li class="nav-item"><a href="vip.html"><span class="top-nav-font">VIP办理</span></a></li>
       <li class="nav-item"><a class="activated" href="#"><span class="top-nav-font">婚庆代驾</span></a></li>
       <li class="nav-item"><a href="entry.html"><span class="top-nav-font">司机报名</span></a></li>
       <li class="nav-item"><a href=""><span class="top-nav-font">最新活动</span></a></li>
-      <li class="nav-item"><a href="about.html"><span class="top-nav-font">关于我们</span></a></li>
+      <li class="nav-item"><a href="aboutus.html"><span class="top-nav-font">关于我们</span></a></li>
       <li class="nav-item"><a href="questions.html"><span class="top-nav-font">常见问答</span></a></li>
     </ul>
   </nav>
   <div class="banners-container">
-    <img src="img/banner-1.jpg">
+    <img src="img/banner-wedding.jpg">
   </div>
 </header>
 <div class="content-container secondary">
-  <div class="tile-basic wedding">
-    <div class="col-container">
-      <div class=" block clearfix form-horizontal wedding-content">
-        <div class="container-fluid">
-          <div class="span7">
-            <form id="wedding-apply-form" action="/wedding/" method="post">                                                <div class="control-group">
-              <label class="control-label required" for="WeddingApply_name"><span style="color:red;">*</span> 申请人姓名</label>                    <div class="controls">
-              <input class="input-xlarge info" placeholder="申请人姓名" name="WeddingApply[name]" id="WeddingApply_name" type="text" maxlength="40" />                    </div>
-            </div>
-              <div class="control-group">
-                <label class="control-label required" for="WeddingApply_phone"><span style="color:red;">*</span> 联系电话</label>                    <div class="controls">
-                <input class="input-xlarge info" placeholder="联系电话" name="WeddingApply[phone]" id="WeddingApply_phone" type="text" maxlength="32" />                    </div>
+<div class="tile-basic wedding">
+  <div class="col-container">
+    <div class=" block clearfix form-horizontal wedding-content">
+      <div class="container-fluid">
+        <div class="span7">
+          <form id="wedding-apply-form">
+            <div class="control-group">
+              <label class="control-label required" for="WeddingApply_name"><span style="color:red;">*</span> 申请人姓名</label>
+
+              <div class="controls">
+                <input class="input-xlarge info" placeholder="申请人姓名" name="name" id="WeddingApply_name" type="text" maxlength="40"/>
               </div>
-              <div class="control-group">
-                <label class="control-label required" for="WeddingApply_wedding_type"><span style="color:red;">*</span> 宴会类型</label>                    <div class="controls">
+            </div>
+            <div class="control-group">
+              <label class="control-label required" for="WeddingApply_phone"><span style="color:red;">*</span> 联系电话</label>
+
+              <div class="controls">
+                <input class="input-xlarge info" placeholder="联系电话" name="phone" id="WeddingApply_phone" type="text" maxlength="32"/>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label required" for="WeddingApply_wedding_type"><span style="color:red;">*</span> 宴会类型</label>
+
+              <div class="controls">
                 <select class="info" name="wedding_type" id="wedding_type">
                   <option value="0">婚宴</option>
                   <option value="1">酒会</option>
                   <option value="2">其他</option>
-                </select>                    </div>
+                </select></div>
+            </div>
+            <div class="control-group">
+              <label class="control-label required" for="WeddingApply_run_time"><span style="color:red;">*</span> 宴会举办日期</label>
+
+              <div class="controls">
+                <input placeholder="选择宴会日期" class="input-xlarge info" id="WeddingApply_run_time" name="run_time" type="text"/>
               </div>
-              <div class="control-group">
-                <label class="control-label required" for="WeddingApply_run_time"><span style="color:red;">*</span> 宴会举办日期</label>                    <div class="controls">
-                <input placeholder="选择宴会日期" class="input-xlarge info" id="WeddingApply_run_time" name="WeddingApply[run_time]" type="text" />                    </div>
-              </div>
-              <div class="control-group">
-                <label class="control-label required" for="WeddingApply_city_id"><span style="color:red;">*</span> 城市</label>                    <div class="controls">
-                <select class="info" name="WeddingApply[city_id]" id="WeddingApply_city_id">
+            </div>
+            <div class="control-group">
+              <label class="control-label required" for="WeddingApply_city_id"><span style="color:red;">*</span> 城市</label>
+
+              <div class="controls">
+                <select class="info" name="city_id" id="WeddingApply_city_id">
                   <option value="0">请选择城市</option>
                   <option value="1">北京</option>
                   <option value="2">成都</option>
@@ -139,47 +224,65 @@
                   <option value="80">汉中</option>
                   <option value="81">新余</option>
                   <option value="82">锦州</option>
-                </select>                    </div>
+                </select></div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="WeddingApply_hotels">举办酒店</label>
+
+              <div class="controls">
+                <input class="input-xlarge info" placeholder="举办酒店" name="hotels" id="WeddingApply_hotels" type="text" maxlength="50"/>
               </div>
-              <div class="control-group">
-                <label class="control-label" for="WeddingApply_hotels">举办酒店</label>                    <div class="controls">
-                <input class="input-xlarge info" placeholder="举办酒店" name="WeddingApply[hotels]" id="WeddingApply_hotels" type="text" maxlength="50" />                    </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label required" for="WeddingApply_detail_site"><span style="color:red;">*</span> 宴会详细地点</label>
+
+              <div class="controls">
+                <input class="input-xlarge info" placeholder="详细地址" name="detail_site" id="WeddingApply_detail_site" type="text" maxlength="200"/>
               </div>
-              <div class="control-group">
-                <label class="control-label required" for="WeddingApply_detail_site"><span style="color:red;">*</span> 宴会详细地点</label>                    <div class="controls">
-                <input class="input-xlarge info" placeholder="详细地址" name="WeddingApply[detail_site]" id="WeddingApply_detail_site" type="text" maxlength="200" />                    </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label required" for="WeddingApply_number"><span style="color:red;">*</span> 参加人数</label>
+
+              <div class="controls">
+                <input class="input-xlarge info" placeholder="参加人数" name="number" id="WeddingApply_number" type="text"/>
               </div>
-              <div class="control-group">
-                <label class="control-label required" for="WeddingApply_number"><span style="color:red;">*</span> 参加人数</label>                    <div class="controls">
-                <input class="input-xlarge info" placeholder="参加人数" name="WeddingApply[number]" id="WeddingApply_number" type="text" />                    </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label required" for="WeddingApply_mark"><span style="color:red;">*</span> 宴会流程、主要内容</label>
+
+              <div class="controls">
+                <textarea rows="6" class="input-xlarge info" placeholder="流程和主要内容" name="mark" id="WeddingApply_mark"></textarea>
               </div>
-              <div class="control-group">
-                <label class="control-label required" for="WeddingApply_mark"><span style="color:red;">*</span> 宴会流程、主要内容</label>                    <div class="controls">
-                <textarea rows="6" class="input-xlarge info" placeholder="流程和主要内容" name="WeddingApply[mark]" id="WeddingApply_mark"></textarea>                    </div>
+            </div>
+            <div class="control-group">
+              <label for="WeddingApply_verifyCode" class="control-label required"><span style="color:red;">* </span>验证码</label>
+
+              <div class="controls">
+                <input class="span4" maxlength="4" placeholder="验证码" name="verifyCode" id="WeddingApply_verifyCode" type="text" style="width:90px;"><img id="yw0" src="http://www.edaijia.cn/v2/index.php?r=site/captcha&amp;v=53ed941cc2f98" alt=""><a id="yw0_button" href="/v2/index.php?r=site/captcha&amp;refresh=1">换一张</a>
               </div>
-              <div class="control-group">
-                <label for="WeddingApply_verifyCode" class="control-label required"><span style="color:red;">* </span>验证码</label>
-                <div class="controls">
-                  <input class="span4" maxlength="4" placeholder="验证码" name="WeddingApply[verifyCode]" id="WeddingApply_verifyCode" type="text" style="width:90px;"><img id="yw0" src="http://www.edaijia.cn/v2/index.php?r=site/captcha&amp;v=53ed941cc2f98" alt=""><a id="yw0_button" href="/v2/index.php?r=site/captcha&amp;refresh=1">换一张</a>                    </div>
-                <label for="WeddingApply_verifyCode" class="control-label required"> </label>
-                <div class="controls">
-                  <div style="color:red;display:none" class="errorMessage" id="WeddingApply_verifyCode_em_"></div>                    </div>
+              <label for="WeddingApply_verifyCode" class="control-label required"> </label>
+
+              <div class="controls">
+                <div style="color:red;display:none" class="errorMessage" id="WeddingApply_verifyCode_em_"></div>
               </div>
-              <div class="control-group">
-                <div class="controls">
-                  <a class="btn btn-primary btn-large wedding_vip_submit" id="apply_wedding">提交申请</a>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <a class="btn btn-primary btn-large wedding_vip_submit" id="apply_wedding">提交申请</a>
               </div>
-            </form>            </div>
-          <div class="span4 span5_div_apply">
-            婚宴/酒会因为开车不能喝酒，欢乐的时刻不能尽兴？现在，只要您的婚宴/酒会主题创意独特、规模够大、气氛够嗨，就有机会得到e代驾赞助的现场代驾服务。如您的婚宴/酒会需要我们赞助代驾服务，请详细填写下列表格。
-            <br/><br/>
-            申请提交成功后我们会在3-5个工作日内与您联系。
-          </div>
-        </div></div>
+            </div>
+          </form>
+        </div>
+        <div class="span4 span5_div_apply">
+          婚宴/酒会因为开车不能喝酒，欢乐的时刻不能尽兴？现在，只要您的婚宴/酒会主题创意独特、规模够大、气氛够嗨，就有机会得到e代驾赞助的现场代驾服务。如您的婚宴/酒会需要我们赞助代驾服务，请详细填写下列表格。
+          <br/><br/>
+          申请提交成功后我们会在3-5个工作日内与您联系。
+        </div>
+      </div>
     </div>
   </div>
-  <footer class="footer-container">
+</div>
+<footer class="footer-container">
   <ul class="left-nav">
     <li class="nav-item"><a href="">关于e代驾</a></li>
     <li class="nav-item"><a href="">e代驾招募</a></li>
@@ -201,7 +304,16 @@
 </div>
 
 
+<script type="text/javascript" src="http://www.edaijia.cn/v2/cache/assets/63854129/jui/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://www.edaijia.cn/v2/cache/assets/63854129/jui/js/jquery-ui-i18n.min.js"></script>
+<script type="text/javascript" src="http://www.edaijia.cn/v2/cache/assets/90e46583/jquery-ui-timepicker-addon.js"></script>
+<script>
+  /*<![CDATA[*/
+  jQuery(function ($) {
 
-
+    jQuery('#WeddingApply_run_time').datepicker(jQuery.extend({showMonthAfterYear: false}, jQuery.datepicker.regional['zh'], {'dateFormat': 'yy-mm-dd', 'minDate': 'new Date()'}));
+  });
+  /*]]>*/
+</script>
 </body>
 </html>
