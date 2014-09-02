@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head lang="zh-CN">
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title></title>
   <link href="css/reset.min.css" type="text/css" rel="stylesheet"/>
   <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="http://www.edaijia.cn/v2/sto/classic/i/bootstrap/css/bootstrap-responsive.css"/>
   <link href="css/main.css" type="text/css" rel='stylesheet'/>
   <link rel="stylesheet" href="css/edj-widget-option-box.css"/>
-  <script id="nav_temp" src="templates/nav.temp" type="text/html"></script>
-  <script src="js/jquery-1.8.3.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/choose.js"></script>
+  <script src="js/ender.js" type="text/javascript"></script>
+
 </head>
 <body>
-<header class="header-container">
+<header class="header-container .index-header">
   <nav class="top-nav">
-    <div class="logo-btn">
-      <a href="index.html"></a>
+    <div class="nav-content">
+      <div class="logo-btn">
+        <a href="index.html"></a>
+      </div>
+      <ul class="top-nav-container">
+        <li class="nav-item"><a class="activated" href="#"><span class="top-nav-font">首页</span></a></li>
+        <li class="nav-item"><a href="vip.html"><span class="top-nav-font">VIP办理</span></a></li>
+        <li class="nav-item"><a href="wedding.html"><span class="top-nav-font">婚庆代驾</span></a></li>
+        <li class="nav-item"><a href="entry.html"><span class="top-nav-font">司机报名</span></a></li>
+        <li class="nav-item disabled"><a href="javascripr:retrun false"><span class="top-nav-font">最新活动</span></a></li>
+        <li class="nav-item"><a href="aboutus.html"><span class="top-nav-font">关于我们</span></a></li>
+        <li class="nav-item"><a href="questions.html"><span class="top-nav-font">常见问答</span></a></li>
+      </ul>
     </div>
-    <ul class="top-nav-container">
-      <li class="nav-item"><a class="activated" href="#"><span class="top-nav-font">首页</span></a></li>
-      <li class="nav-item"><a href="vip.html"><span class="top-nav-font">VIP办理</span></a></li>
-      <li class="nav-item"><a href="wedding.html"><span class="top-nav-font">婚庆代驾</span></a></li>
-      <li class="nav-item"><a href="entry.html"><span class="top-nav-font">司机报名</span></a></li>
-      <li class="nav-item"><a href=""><span class="top-nav-font">最新活动</span></a></li>
-      <li class="nav-item"><a href="aboutus.html"><span class="top-nav-font">关于我们</span></a></li>
-      <li class="nav-item"><a href="questions.html"><span class="top-nav-font">常见问答</span></a></li>
-    </ul>
   </nav>
-  <div class="banners-container">
-    <img src="img/banner-index.jpg">
+  <div id="wrapper" class="banners-container">
+    <div id="scroller" class="ad_img">
+      <ul>
+        <li class="banner-1"></li>
+        <li class="banner-2"></li>
+      </ul>
+    </div>
   </div>
+  <ul id="indicator" >
+    <li class="on" data-id="0"></li>
+    <li data-id="1"></li>
+  </ul>
+  <script type="text/javascript">
+
+    this.myScroll = $('#wrapper').iScroll({
+      snap: true,
+      momentum: false,
+      hScrollbar: false,
+      onScrollEnd: function () {
+        document.querySelector('#indicator > li.on').className = '';
+        document.querySelector('#indicator > li:nth-child(' + (this.currPageX+1) + ')').className = 'on';
+      }
+    });
+  </script>
+
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script>
+    $(function(){
+      $("#indicator").on("click","li",function(){
+        myScroll.scrollToPage($(this).data("id"),0,500);
+      });
+    });
+  </script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/choose.js"></script>
 </header>
 <div class="content-container">
   <nav class="tile-basic mid-nav">
@@ -119,22 +151,19 @@
     </div>
     <hr class="line" style="width:96%;margin-bottom:30px"/>
     <p class="remark">注：1、不同时段的代驾起步费以实际出发时间为准。</p>
-
     <p class="remark">2、代驾距离超过10公里后，每10公里加收20元，不足10公里按10公里计算。</p>
-
     <p class="remark">3、等候时间每满30分钟收费20元，不满30分钟不收费。</p>
-
   </div>
   <footer class="footer-container">
     <ul class="left-nav">
-      <li class="nav-item"><a href="">关于e代驾</a></li>
-      <li class="nav-item"><a href="">e代驾招募</a></li>
+      <li class="nav-item"><a href="aboutus.html">关于e代驾</a></li>
+      <li class="nav-item"><a href="entry.html">e代驾招募</a></li>
       <li class="nav-item"><a href="">服务与合作</a></li>
       <li class="nav-item"><a href="">司机专区</a></li>
       <li class="nav-item"><a href="">司机端APP下载</a></li>
     </ul>
     <ul class="right-nav">
-      <li class="nav-item weibo"><a href="">e代驾官方微博</a></li>
+      <li class="nav-item weibo"><a href="http://weibo.com/edaijia?s=6cm7D0">e代驾官方微博</a></li>
       <li class="nav-item wechat"><a href="">微信号：edaijia</a></li>
     </ul>
     <div class="line"></div>

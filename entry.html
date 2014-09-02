@@ -53,8 +53,9 @@
   </script>
 </head>
 <body>
-<header class="header-container">
+<header class="header-container entry-banner">
   <nav class="top-nav">
+    <div class="nav-content">
     <div class="logo-btn">
       <a href="index.html"></a>
     </div>
@@ -63,14 +64,12 @@
       <li class="nav-item"><a href="vip.html"><span class="top-nav-font">VIP办理</span></a></li>
       <li class="nav-item"><a href="wedding.html"><span class="top-nav-font">婚庆代驾</span></a></li>
       <li class="nav-item"><a href="#" class="activated"><span class="top-nav-font">司机报名</span></a></li>
-      <li class="nav-item"><a href=""><span class="top-nav-font">最新活动</span></a></li>
+      <li class="nav-item disabled"><a href="javascripr:void(0);"><span class="top-nav-font">最新活动</span></a></li>
       <li class="nav-item"><a href="aboutus.html"><span class="top-nav-font">关于我们</span></a></li>
       <li class="nav-item"><a href="questions.html"><span class="top-nav-font">常见问答</span></a></li>
-    </ul>
+    </ul></div>
   </nav>
-  <div class="banners-container">
-    <img src="img/banner-entry.jpg">
-  </div>
+
 </header>
 <div class="content-container secondary">
 <div class="tile-basic entry">
@@ -401,183 +400,183 @@
 <div class="col-container" style="display: none;" data-col-id="5">
   <div class="query-city">
     <form class="form-inline" action="" method="get">
-      <!--<select name="city_id" id="city_id">-->
-      <!--<option value="0">请选择城市</option>-->
-      <!--<option value="1">北京</option>-->
-      <!--<option value="2">成都</option>-->
-      <!--<option value="3">上海</option>-->
-      <!--<option value="4">杭州</option>-->
-      <!--<option value="5">广州</option>-->
-      <!--<option value="6">深圳</option>-->
-      <!--<option value="7" selected="selected">重庆</option>-->
-      <!--<option value="8">南京</option>-->
-      <!--<option value="9">长沙</option>-->
-      <!--<option value="10">武汉</option>-->
-      <!--<option value="11">西安</option>-->
-      <!--<option value="12">宁波</option>-->
-      <!--<option value="13">温州</option>-->
-      <!--<option value="14">天津</option>-->
-      <!--<option value="15">济南</option>-->
-      <!--<option value="16">苏州</option>-->
-      <!--<option value="17">昆明</option>-->
-      <!--<option value="18">郑州</option>-->
-      <!--<option value="19">沈阳</option>-->
-      <!--<option value="20">青岛</option>-->
-      <!--<option value="21">大连</option>-->
-      <!--<option value="22">厦门</option>-->
-      <!--<option value="23">合肥</option>-->
-      <!--<option value="24">哈尔滨</option>-->
-      <!--<option value="25">石家庄</option>-->
-      <!--<option value="26">南昌</option>-->
-      <!--<option value="27">福州</option>-->
-      <!--<option value="28">佛山</option>-->
-      <!--<option value="29">太原</option>-->
-      <!--<option value="30">无锡</option>-->
-      <!--<option value="31">常州</option>-->
-      <!--<option value="32">东莞</option>-->
-      <!--<option value="33">贵阳</option>-->
-      <!--<option value="34">兰州</option>-->
-      <!--<option value="35">南宁</option>-->
-      <!--<option value="36">长春</option>-->
-      <!--<option value="37">南通</option>-->
-      <!--<option value="38">呼和浩特</option>-->
-      <!--<option value="39">包头</option>-->
-      <!--<option value="40">威海</option>-->
-      <!--<option value="41">海口</option>-->
-      <!--<option value="42">乌鲁木齐</option>-->
-      <!--<option value="43">银川</option>-->
-      <!--<option value="44">扬州</option>-->
-      <!--<option value="46">镇江</option>-->
-      <!--<option value="47">泰州</option>-->
-      <!--<option value="48">徐州</option>-->
-      <!--<option value="49">金华</option>-->
-      <!--<option value="50">绍兴</option>-->
-      <!--<option value="51">嘉兴</option>-->
-      <!--<option value="52">台州</option>-->
-      <!--<option value="53">湖州</option>-->
-      <!--<option value="54">惠州</option>-->
-      <!--<option value="55">中山</option>-->
-      <!--<option value="56">珠海</option>-->
-      <!--<option value="57">马鞍山</option>-->
-      <!--<option value="58">泉州</option>-->
-      <!--<option value="59">淄博</option>-->
-      <!--<option value="60">烟台</option>-->
-      <!--<option value="61">洛阳</option>-->
-      <!--<option value="62">新乡</option>-->
-      <!--<option value="63">廊坊</option>-->
-      <!--<option value="64">秦皇岛</option>-->
-      <!--<option value="65">唐山</option>-->
-      <!--<option value="66">鞍山</option>-->
-      <!--<option value="67">辽阳</option>-->
-      <!--<option value="68">宜昌</option>-->
-      <!--<option value="69">岳阳</option>-->
-      <!--<option value="70">宜宾</option>-->
-      <!--<option value="71">大同</option>-->
-      <!--<option value="72">咸阳</option>-->
-      <!--<option value="73">连云港</option>-->
-      <!--<option value="74">丽水</option>-->
-      <!--<option value="75">盐城</option>-->
-      <!--<option value="76">湛江</option>-->
-      <!--<option value="77">西宁</option>-->
-      <!--<option value="78">拉萨</option>-->
-      <!--<option value="79">漳州</option>-->
-      <!--<option value="80">莆田</option>-->
-      <!--<option value="81">龙岩</option>-->
-      <!--<option value="82">南平</option>-->
-      <!--<option value="83">三明</option>-->
-      <!--<option value="84">潍坊</option>-->
-      <!--<option value="85">济宁</option>-->
-      <!--<option value="86">东营</option>-->
-      <!--<option value="87">临沂</option>-->
-      <!--<option value="89">泰安</option>-->
-      <!--<option value="90">德州</option>-->
-      <!--<option value="91">聊城</option>-->
-      <!--<option value="92">滨州</option>-->
-      <!--<option value="93">枣庄</option>-->
-      <!--<option value="94">菏泽</option>-->
-      <!--<option value="95">日照</option>-->
-      <!--<option value="96">莱芜</option>-->
-      <!--<option value="97">义乌</option>-->
-      <!--<option value="98">舟山</option>-->
-      <!--<option value="99">衢州</option>-->
-      <!--<option value="100">茂名</option>-->
-      <!--<option value="101">江门</option>-->
-      <!--<option value="102">肇庆</option>-->
-      <!--<option value="103">汕头</option>-->
-      <!--<option value="104">揭阳</option>-->
-      <!--<option value="105">清远</option>-->
-      <!--<option value="106">阳江</option>-->
-      <!--<option value="107">韶关</option>-->
-      <!--<option value="108">梅州</option>-->
-      <!--<option value="109">潮州</option>-->
-      <!--<option value="110">河源</option>-->
-      <!--<option value="111">汕尾</option>-->
-      <!--<option value="112">云浮</option>-->
-      <!--<option value="113">淮安</option>-->
-      <!--<option value="114">宿迁</option>-->
-      <!--<option value="115">邯郸</option>-->
-      <!--<option value="116">沧州</option>-->
-      <!--<option value="117">保定</option>-->
-      <!--<option value="118">邢台</option>-->
-      <!--<option value="119">安阳</option>-->
-      <!--<option value="120">焦作</option>-->
-      <!--<option value="121">许昌</option>-->
-      <!--<option value="122">平顶山</option>-->
-      <!--<option value="123">漯河</option>-->
-      <!--<option value="124">长治</option>-->
-      <!--<option value="125">晋城</option>-->
-      <!--<option value="126">临汾</option>-->
-      <!--<option value="127">阳泉</option>-->
-      <!--<option value="128">运城</option>-->
-      <!--<option value="129">榆林</option>-->
-      <!--<option value="130">宝鸡</option>-->
-      <!--<option value="131">铜川</option>-->
-      <!--<option value="132">渭南</option>-->
-      <!--<option value="133">汉中</option>-->
-      <!--<option value="134">襄阳</option>-->
-      <!--<option value="135">孝感</option>-->
-      <!--<option value="136">黄石</option>-->
-      <!--<option value="137">黄冈</option>-->
-      <!--<option value="138">荆州</option>-->
-      <!--<option value="139">荆门</option>-->
-      <!--<option value="140">常德</option>-->
-      <!--<option value="141">衡阳</option>-->
-      <!--<option value="142">株洲</option>-->
-      <!--<option value="143">彬州</option>-->
-      <!--<option value="144">湘潭</option>-->
-      <!--<option value="145">芜湖</option>-->
-      <!--<option value="146">蚌埠</option>-->
-      <!--<option value="147">淮南</option>-->
-      <!--<option value="148">安庆</option>-->
-      <!--<option value="149">淮北</option>-->
-      <!--<option value="150">阜阳</option>-->
-      <!--<option value="151">绵阳</option>-->
-      <!--<option value="152">德阳</option>-->
-      <!--<option value="153">自贡</option>-->
-      <!--<option value="154">攀枝花</option>-->
-      <!--<option value="155">泸州</option>-->
-      <!--<option value="156">乐山</option>-->
-      <!--<option value="157">内江</option>-->
-      <!--<option value="158">九江</option>-->
-      <!--<option value="159">新余</option>-->
-      <!--<option value="160">萍乡</option>-->
-      <!--<option value="161">景德镇</option>-->
-      <!--<option value="162">鹰潭</option>-->
-      <!--<option value="164">赣州</option>-->
-      <!--<option value="165">营口</option>-->
-      <!--<option value="166">盘锦</option>-->
-      <!--<option value="167">锦州</option>-->
-      <!--<option value="168">抚顺</option>-->
-      <!--<option value="169">本溪</option>-->
-      <!--<option value="170">铁岭</option>-->
-      <!--<option value="171">商丘</option>-->
-      <!--<option value="172">开封</option>-->
-      <!--<option value="173">遵义</option>-->
-      <!--<option value="174">毕节</option>-->
-      <!--<option value="175">郴州</option>-->
-      <!--<option value="176">吕梁</option>-->
-      <!--<option value="177">达州</option>-->
-      <!--</select>-->
+      <select name="city_id" id="city_id">
+      <option value="0">请选择城市</option>
+      <option value="1">北京</option>
+      <option value="2">成都</option>
+      <option value="3">上海</option>
+      <option value="4">杭州</option>
+      <option value="5">广州</option>
+      <option value="6">深圳</option>
+      <option value="7" selected="selected">重庆</option>
+      <option value="8">南京</option>
+      <option value="9">长沙</option>
+      <option value="10">武汉</option>
+      <option value="11">西安</option>
+      <option value="12">宁波</option>
+      <option value="13">温州</option>
+      <option value="14">天津</option>
+      <option value="15">济南</option>
+      <option value="16">苏州</option>
+      <option value="17">昆明</option>
+      <option value="18">郑州</option>
+      <option value="19">沈阳</option>
+      <option value="20">青岛</option>
+      <option value="21">大连</option>
+      <option value="22">厦门</option>
+      <option value="23">合肥</option>
+      <option value="24">哈尔滨</option>
+      <option value="25">石家庄</option>
+      <option value="26">南昌</option>
+      <option value="27">福州</option>
+      <option value="28">佛山</option>
+      <option value="29">太原</option>
+      <option value="30">无锡</option>
+      <option value="31">常州</option>
+      <option value="32">东莞</option>
+      <option value="33">贵阳</option>
+      <option value="34">兰州</option>
+      <option value="35">南宁</option>
+      <option value="36">长春</option>
+      <option value="37">南通</option>
+      <option value="38">呼和浩特</option>
+      <option value="39">包头</option>
+      <option value="40">威海</option>
+      <option value="41">海口</option>
+      <option value="42">乌鲁木齐</option>
+      <option value="43">银川</option>
+      <option value="44">扬州</option>
+      <option value="46">镇江</option>
+      <option value="47">泰州</option>
+      <option value="48">徐州</option>
+      <option value="49">金华</option>
+      <option value="50">绍兴</option>
+      <option value="51">嘉兴</option>
+      <option value="52">台州</option>
+      <option value="53">湖州</option>
+      <option value="54">惠州</option>
+      <option value="55">中山</option>
+      <option value="56">珠海</option>
+      <option value="57">马鞍山</option>
+      <option value="58">泉州</option>
+      <option value="59">淄博</option>
+      <option value="60">烟台</option>
+      <option value="61">洛阳</option>
+      <option value="62">新乡</option>
+      <option value="63">廊坊</option>
+      <option value="64">秦皇岛</option>
+      <option value="65">唐山</option>
+      <option value="66">鞍山</option>
+      <option value="67">辽阳</option>
+      <option value="68">宜昌</option>
+      <option value="69">岳阳</option>
+      <option value="70">宜宾</option>
+      <option value="71">大同</option>
+      <option value="72">咸阳</option>
+      <option value="73">连云港</option>
+      <option value="74">丽水</option>
+      <option value="75">盐城</option>
+      <option value="76">湛江</option>
+      <option value="77">西宁</option>
+      <option value="78">拉萨</option>
+      <option value="79">漳州</option>
+      <option value="80">莆田</option>
+      <option value="81">龙岩</option>
+      <option value="82">南平</option>
+      <option value="83">三明</option>
+      <option value="84">潍坊</option>
+      <option value="85">济宁</option>
+      <option value="86">东营</option>
+      <option value="87">临沂</option>
+      <option value="89">泰安</option>
+      <option value="90">德州</option>
+      <option value="91">聊城</option>
+      <option value="92">滨州</option>
+      <option value="93">枣庄</option>
+      <option value="94">菏泽</option>
+      <option value="95">日照</option>
+      <option value="96">莱芜</option>
+      <option value="97">义乌</option>
+      <option value="98">舟山</option>
+      <option value="99">衢州</option>
+      <option value="100">茂名</option>
+      <option value="101">江门</option>
+      <option value="102">肇庆</option>
+      <option value="103">汕头</option>
+      <option value="104">揭阳</option>
+      <option value="105">清远</option>
+      <option value="106">阳江</option>
+      <option value="107">韶关</option>
+      <option value="108">梅州</option>
+      <option value="109">潮州</option>
+      <option value="110">河源</option>
+      <option value="111">汕尾</option>
+      <option value="112">云浮</option>
+      <option value="113">淮安</option>
+      <option value="114">宿迁</option>
+      <option value="115">邯郸</option>
+      <option value="116">沧州</option>
+      <option value="117">保定</option>
+      <option value="118">邢台</option>
+      <option value="119">安阳</option>
+      <option value="120">焦作</option>
+      <option value="121">许昌</option>
+      <option value="122">平顶山</option>
+      <option value="123">漯河</option>
+      <option value="124">长治</option>
+      <option value="125">晋城</option>
+      <option value="126">临汾</option>
+      <option value="127">阳泉</option>
+      <option value="128">运城</option>
+      <option value="129">榆林</option>
+      <option value="130">宝鸡</option>
+      <option value="131">铜川</option>
+      <option value="132">渭南</option>
+      <option value="133">汉中</option>
+      <option value="134">襄阳</option>
+      <option value="135">孝感</option>
+      <option value="136">黄石</option>
+      <option value="137">黄冈</option>
+      <option value="138">荆州</option>
+      <option value="139">荆门</option>
+      <option value="140">常德</option>
+      <option value="141">衡阳</option>
+      <option value="142">株洲</option>
+      <option value="143">彬州</option>
+      <option value="144">湘潭</option>
+      <option value="145">芜湖</option>
+      <option value="146">蚌埠</option>
+      <option value="147">淮南</option>
+      <option value="148">安庆</option>
+      <option value="149">淮北</option>
+      <option value="150">阜阳</option>
+      <option value="151">绵阳</option>
+      <option value="152">德阳</option>
+      <option value="153">自贡</option>
+      <option value="154">攀枝花</option>
+      <option value="155">泸州</option>
+      <option value="156">乐山</option>
+      <option value="157">内江</option>
+      <option value="158">九江</option>
+      <option value="159">新余</option>
+      <option value="160">萍乡</option>
+      <option value="161">景德镇</option>
+      <option value="162">鹰潭</option>
+      <option value="164">赣州</option>
+      <option value="165">营口</option>
+      <option value="166">盘锦</option>
+      <option value="167">锦州</option>
+      <option value="168">抚顺</option>
+      <option value="169">本溪</option>
+      <option value="170">铁岭</option>
+      <option value="171">商丘</option>
+      <option value="172">开封</option>
+      <option value="173">遵义</option>
+      <option value="174">毕节</option>
+      <option value="175">郴州</option>
+      <option value="176">吕梁</option>
+      <option value="177">达州</option>
+      </select>
       <input type="hidden" name="act" value="interview"/>
       <input type="submit" class="btn" value="查询"/>
     </form>
@@ -593,28 +592,30 @@
         <form id="yw0" action="/queue" method="post">
           <label for="query_id_card">请输入身份证号</label>
           <input type="text" id="query_id_card" name="id_card" value="" style="float:left;"/>&nbsp;
-          <input class="btn" type="button" name="yt0" value="查询"/>
+          <input class="btn" type="button" id="query_btn" name="yt0" value="查询"/>
         </form>
       </div>
     </div>
+    <div class="query-result"></div>
   </div>
 </div>
 <!--报名查询-->
 <br style="clear:both;"/>
 </div>
+
 <footer class="footer-container">
   <ul class="left-nav">
-    <li class="nav-item"><a href="">关于e代驾</a></li>
-    <li class="nav-item"><a href="">e代驾招募</a></li>
+    <li class="nav-item"><a href="aboutus.html">关于e代驾</a></li>
+    <li class="nav-item"><a href="entry.html">e代驾招募</a></li>
     <li class="nav-item"><a href="">服务与合作</a></li>
     <li class="nav-item"><a href="">司机专区</a></li>
     <li class="nav-item"><a href="">司机端APP下载</a></li>
   </ul>
   <ul class="right-nav">
-    <li class="nav-item weibo"><a href="">e代驾官方微博</a></li>
+    <li class="nav-item weibo"><a href="http://weibo.com/edaijia?s=6cm7D0">e代驾官方微博</a></li>
     <li class="nav-item wechat"><a href="">微信号：edaijia</a></li>
   </ul>
-  <hr class="line"/>
+  <div class="line"></div>
   <span class="bottom-text">投诉建议：400-691-3939 (9:00-18:00) &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; VIP办理：010-6439-2767 (9:00-18:00)</span>
   <span class="bottom-text right-content">Copyright © 2011-2013 edaijia.cn All Right Reserved 京ICP备13048976号-1 </span>
 </footer>
@@ -626,6 +627,32 @@
 <script type="text/javascript">
   /*<![CDATA[*/
   $(function ($) {
+
+    $("#query_btn").on("click",function(){
+      var id= $("#query_id_card").val();
+      if (!checkIdcard(id)) {
+        alert('请输入正确的身份证号码');
+        return false;
+      }
+      var mResult = {
+        method: "open.site.queue",
+        params: {
+          id_card: id
+        }
+      }
+      $.when(Common.getRequest(mResult)).then(function (str) {
+        if (CU.isSucceed(str)) {
+          var result = str;
+          $.when(Common.getTemplate("templates/queryResult.temp")).then(function (t) {
+            if (t == "") {
+              return false;
+            }
+            var lResult = doT.template(t);
+            $(".query-result").append(lResult((result)));
+          });
+        }
+      });
+    });
     $("#start_exam").on("click", function () {
       var id_card = $("#exam_id_card").val();
 
@@ -639,6 +666,15 @@
           "id_card": id_card
         }
       }
+      $.when(Common.getTemplate("templates/exam.temp")).then(function (t) {
+        if (t == "") {
+          return false;
+        }
+        var lQuestions = doT.template(t);
+        $(".exam-content").parent().remove(".questions-container").append(lQuestions(questionsSerialize(questions)));
+        $(".questions-container").data("id_card",id_card);
+        addExamEvent();
+      });
       var wrongResult = 0;
       $.when(Common.getRequest(mExam)).then(function (str) {
         if (CU.isSucceed(str)) {
